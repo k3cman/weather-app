@@ -3,6 +3,7 @@ import { Wind } from './wind.class';
 
 export class CurrentWeather {
     place: Place;
+    feeling: number;
     humidity: number;
     pressure: number;
     temperature: number;

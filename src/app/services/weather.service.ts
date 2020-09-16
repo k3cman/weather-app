@@ -35,6 +35,7 @@ export class WeatherService {
                             deg: data.wind.deg,
                             speed: data.wind.speed,
                         },
+                        feeling: data.main.feels_like,
                     }));
                 })
             );

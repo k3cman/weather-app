@@ -1,15 +1,12 @@
-<div *ngIf="currentWeather$ | async as currentWeathers; else loading">
-  <div *ngFor="let place of currentWeathers">
-    <div>
-      <p>{{place.place.city}}</p>
-      <p>{{place.temperature}}</p>
-      <p>{{place.wind.speed}}</p>
-      <p>{{place.status}}</p>
-    </div>
+<div class="container">
+  <div class="card-wrapper" *ngIf="currentWeather$ | async as currentWeathers; else loading">
+    <card *ngFor="let place of currentWeathers" [weatherData]="place">
+    </card>
   </div>
+
+
+  <ng-template #loading>
+    <h1>LOADING</h1>
+  </ng-template>
+
 </div>
-
-
-<ng-template #loading>
-  <h1>LOADING</h1>
-</ng-template>

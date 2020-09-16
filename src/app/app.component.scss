@@ -1,0 +1,17 @@
+:host{
+  background:#EFEFEF;
+  width:100%;
+  height:100%;
+}
+
+.container{
+  max-width:1440px;
+  margin: 10em auto;
+  height:100%;
+}
+
+.card-wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
