@@ -13,7 +13,7 @@ export class WeatherService {
 
     constructor(private http: HttpClient) {}
 
-    public getCurrentWeather(): Observable<CurrentWeather> {
+    public getCurrentWeather(): Observable<CurrentWeather[]> {
         return this.http
             .get<CurrentWeather>(
                 `http://api.openweathermap.org/data/2.5/group?id=${this.cities}&units=metric&appid=${WEATHER_API_KEY}`
