@@ -9,8 +9,39 @@
   <div class="divider">
     <div style="height: 60px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M0.00,49.98 C149.99,150.00 271.49,-49.98 500.00,49.98 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: #08f;"></path></svg></div></div>
 
-  <p>Wind {{weatherData.wind.speed}}</p>
-  <p>Temperature{{weatherData.min}}/{{weatherData.max}}</p>
-  <p>Humidity: {{weatherData.humidity}}</p>
-  <p>Feels like: {{weatherData.feeling}}</p>
+  <div class="card-details">
+    <div class="details-row">
+      <div class="detail">
+        <fa-icon [size]="'lg'" [icon]="windIcon"></fa-icon>
+        <div class="data">
+          <span class="title">Wind</span>
+          <span class="info">{{weatherData.wind.speed}}</span>
+        </div>
+      </div>
+      <div class="detail">
+        <fa-icon [size]="'lg'" [icon]="thermometherIcon"></fa-icon>
+        <div class="data">
+          <span class="title">Temp.</span>
+          <span class="info">{{weatherData.min}}/{{weatherData.max}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="details-row">
+      <div class="detail">
+        <fa-icon [size]="'lg'" [icon]="cloudIcon"></fa-icon>
+        <div class="data">
+          <span class="title">Humidity</span>
+          <span class="info">{{weatherData.humidity}}</span>
+        </div>
+      </div>
+      <div class="detail">
+        <fa-icon [size]="'lg'" [icon]="thermometherFull"></fa-icon>
+        <div class="data">
+          <span class="title">Feeling</span>
+          <span class="info">{{weatherData.feeling}}</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>
