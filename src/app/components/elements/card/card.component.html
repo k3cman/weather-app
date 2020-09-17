@@ -2,12 +2,12 @@
   <div class="card-main">
     <p class="city">{{weatherData.place.city}}</p>
 
-    <p class="temperature">{{weatherData.temperature}}</p>
+    <p class="temperature">{{weatherData.temperature | temperature}}</p>
 
     <p class="status">{{weatherData.status}}</p>
   </div>
   <div class="divider">
-    <div style="height: 60px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M0.00,49.98 C149.99,150.00 271.49,-49.98 500.00,49.98 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: #08f;"></path></svg></div></div>
+    <div style="height: 60px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M0.00,49.98 C149.99,150.00 271.49,-49.98 500.00,49.98 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: #3A6073;"></path></svg></div></div>
 
   <div class="card-details">
     <div class="details-row">
@@ -22,7 +22,7 @@
         <fa-icon [size]="'lg'" [icon]="thermometherIcon"></fa-icon>
         <div class="data">
           <span class="title">Temp.</span>
-          <span class="info">{{weatherData.min}}/{{weatherData.max}}</span>
+          <span class="info">{{weatherData.min | temperature}}/{{weatherData.max | temperature}}</span>
         </div>
       </div>
     </div>
@@ -38,7 +38,7 @@
         <fa-icon [size]="'lg'" [icon]="thermometherFull"></fa-icon>
         <div class="data">
           <span class="title">Feeling</span>
-          <span class="info">{{weatherData.feeling}}</span>
+          <span class="info">{{weatherData.feeling | temperature}}</span>
         </div>
       </div>
     </div>
