@@ -1,4 +1,4 @@
-<div class="card" *ngIf="collapsed === cardState.STANDARD">
+<div class="card" *ngIf="state === cardState.STANDARD">
   <div class="card-main">
     <p class="city">{{weatherData.place.city}}</p>
 
@@ -48,13 +48,13 @@
 
 </div>
 
-<div class="card-closed" *ngIf="collapsed === cardState.CLOSED">
+<div class="card-closed" *ngIf="state === cardState.CLOSED">
 	<div class="city">
 		{{weatherData.place.city}}
 	</div>
 </div>
 
-<div class="card-expanded" *ngIf="collapsed === cardState.EXPANDED">
+<div class="card-expanded" *ngIf="state === cardState.EXPANDED">
 	<div class="card no-shadow">
 		<div class="card-main">
 			<p class="city">{{weatherData.place.city}}</p>
