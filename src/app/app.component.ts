@@ -12,5 +12,7 @@ import { CardState } from './components/elements/card/card.component';
 export class AppComponent {
 	public currentWeather$: Observable<CurrentWeather[]> = this.weatherService.getCurrentWeather();
 	public cardState = CardState;
-	constructor(private weatherService: WeatherService) {}
+	constructor(private weatherService: WeatherService) {
+		this.weatherService.test().subscribe((val) => console.log(val));
+	}
 }

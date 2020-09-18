@@ -48,4 +48,11 @@ export class WeatherService {
 	public getForecast(id: string) {
 		return this.http.get(`http://api.openweathermap.org/data/2.5/forecast?id=${id}&appid=${WEATHER_API_KEY}`);
 	}
+
+	// USE THIS FOR FORECAST
+	public test() {
+		return this.http.get(
+			`https://api.openweathermap.org/data/2.5/onecall?lat=41.89&lon=12.48&appid=${WEATHER_API_KEY}`
+		);
+	}
 }
