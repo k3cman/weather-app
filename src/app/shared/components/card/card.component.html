@@ -1,50 +1,27 @@
 <div class="card" *ngIf="state === cardState.STANDARD">
-  <div class="card-main">
-    <p class="city">{{weatherData.place.city}}</p>
-
-    <p class="temperature">{{weatherData.weather.temperature.current | temperature}}</p>
-
-    <p class="status">{{weatherData.weather.status}}</p>
-  </div>
-  <div class="divider">
-    <div style="height: 60px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M-3.10,106.08 C222.63,214.63 352.99,14.30 499.15,146.53 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: #3A6073;"></path></svg></div></div>
-
-  <div class="card-details">
-    <div class="details-row">
-      <div class="detail">
-        <fa-icon [size]="'lg'" [icon]="windIcon"></fa-icon>
-        <div class="data">
-          <span class="title">Wind</span>
-          <span class="info">{{weatherData.weather.wind.speed}}</span>
-        </div>
-      </div>
-      <div class="detail">
-        <fa-icon [size]="'lg'" [icon]="thermometherIcon"></fa-icon>
-        <div class="data">
-          <span class="title">Temp.</span>
-          <span class="info">{{weatherData.weather.temperature.min | temperature}}/{{weatherData.weather.temperature.max | temperature}}</span>
-        </div>
-      </div>
-    </div>
-    <div class="details-row">
-      <div class="detail">
-        <fa-icon [size]="'lg'" [icon]="cloudIcon"></fa-icon>
-        <div class="data">
-          <span class="title">Humidity</span>
-          <span class="info">{{weatherData.weather.humidity}}</span>
-        </div>
-      </div>
-      <div class="detail">
-        <fa-icon [size]="'lg'" [icon]="thermometherFull"></fa-icon>
-        <div class="data">
-          <span class="title">Feeling</span>
-          <span class="info">{{weatherData.weather.temperature.feeling | temperature}}</span>
-        </div>
-      </div>
-    </div>
-
+  <div class="city">
+	  {{weatherData.place.city}}
   </div>
 
+	<div class="weather">
+		<div class="temperature">
+			{{weatherData.weather.temperature.current | temperature}}
+		</div>
+		<div class="details">
+			<fa-icon [icon]="cloudIcon2" [size]="'lg'"></fa-icon>
+			<span>sunny</span>
+			<div class="details-info">
+				<div>
+					<fa-icon [icon]="thermometherIcon"></fa-icon>
+					{{weatherData.weather.temperature.min | temperature}} / {{weatherData.weather.temperature.max | temperature}}
+				</div>
+				<div>
+					<fa-icon [icon]="windIcon"></fa-icon>
+					5
+				</div>
+			</div>
+		</div>
+	</div>
 
 </div>
 
@@ -56,52 +33,59 @@
 
 <div class="card-expanded" *ngIf="state === cardState.EXPANDED">
 	<div class="card no-shadow">
-		<div class="card-main">
-			<p class="city">{{weatherData.place.city}}</p>
-
-			<p class="temperature">{{weatherData.weather.temperature.current | temperature}}</p>
-
-			<p class="status">{{weatherData.weather.status}}</p>
+		<div class="city">
+			{{weatherData.place.city}}
 		</div>
-		<div class="divider">
-			<div style="height: 60px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M-3.10,106.08 C222.63,214.63 352.99,14.30 499.15,146.53 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: #3A6073;"></path></svg></div></div>
 
-		<div class="card-details">
-			<div class="details-row">
-				<div class="detail">
-					<fa-icon [size]="'lg'" [icon]="windIcon"></fa-icon>
-					<div class="data">
-						<span class="title">Wind</span>
-						<span class="info">{{weatherData.weather.wind.speed}}</span>
+		<div class="weather">
+			<div class="temperature">
+				27C
+			</div>
+			<div class="details">
+				<fa-icon [icon]="cloudIcon2" [size]="'lg'"></fa-icon>
+				<span>sunny</span>
+				<div class="details-info">
+					<div>
+						<fa-icon [icon]="thermometherIcon"></fa-icon>
+						13/21
 					</div>
-				</div>
-				<div class="detail">
-					<fa-icon [size]="'lg'" [icon]="thermometherIcon"></fa-icon>
-					<div class="data">
-						<span class="title">Temp.</span>
-						<span class="info">{{weatherData.weather.temperature.min | temperature}}/{{weatherData.weather.temperature.max | temperature}}</span>
+					<div>
+						<fa-icon [icon]="windIcon"></fa-icon>
+						5
 					</div>
 				</div>
 			</div>
-			<div class="details-row">
-				<div class="detail">
-					<fa-icon [size]="'lg'" [icon]="cloudIcon"></fa-icon>
-					<div class="data">
-						<span class="title">Humidity</span>
-						<span class="info">{{weatherData.weather.humidity}}</span>
-					</div>
-				</div>
-				<div class="detail">
-					<fa-icon [size]="'lg'" [icon]="thermometherFull"></fa-icon>
-					<div class="data">
-						<span class="title">Feeling</span>
-						<span class="info">{{weatherData.weather.temperature.feeling | temperature}}</span>
-					</div>
-				</div>
-			</div>
-
 		</div>
 
+
+	</div>
+	<div class="chart">
+		<div class="header">
+			<button class="button">
+				Temperature
+			</button>
+			<button class="button">
+				Wind
+			</button>
+		</div>
+					<div class="data">
+						<ngx-charts-line-chart
+							*ngIf="chartData$ | async as chartData"
+							[showXAxisLabel]="false"
+							[showYAxisLabel]="false"
+							[xAxis]="true"
+							[yAxis]="true"
+							[timeline]="true"
+							[results]="chartData"
+							[showGridLines]="true"
+							[curve]="curve"
+							[tooltipDisabled]="true"
+							[scheme]="'night'"
+							[autoScale]="true"
+							[roundDomains]="true"
+						>
+						</ngx-charts-line-chart>
+					</div>
 
 	</div>
 </div>
