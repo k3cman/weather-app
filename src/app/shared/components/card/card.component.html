@@ -2,9 +2,9 @@
   <div class="card-main">
     <p class="city">{{weatherData.place.city}}</p>
 
-    <p class="temperature">{{weatherData.temperature | temperature}}</p>
+    <p class="temperature">{{weatherData.weather.temperature.current | temperature}}</p>
 
-    <p class="status">{{weatherData.status}}</p>
+    <p class="status">{{weatherData.weather.status}}</p>
   </div>
   <div class="divider">
     <div style="height: 60px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M-3.10,106.08 C222.63,214.63 352.99,14.30 499.15,146.53 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: #3A6073;"></path></svg></div></div>
@@ -15,14 +15,14 @@
         <fa-icon [size]="'lg'" [icon]="windIcon"></fa-icon>
         <div class="data">
           <span class="title">Wind</span>
-          <span class="info">{{weatherData.wind.speed}}</span>
+          <span class="info">{{weatherData.weather.wind.speed}}</span>
         </div>
       </div>
       <div class="detail">
         <fa-icon [size]="'lg'" [icon]="thermometherIcon"></fa-icon>
         <div class="data">
           <span class="title">Temp.</span>
-          <span class="info">{{weatherData.min | temperature}}/{{weatherData.max | temperature}}</span>
+          <span class="info">{{weatherData.weather.temperature.min | temperature}}/{{weatherData.weather.temperature.max | temperature}}</span>
         </div>
       </div>
     </div>
@@ -31,14 +31,14 @@
         <fa-icon [size]="'lg'" [icon]="cloudIcon"></fa-icon>
         <div class="data">
           <span class="title">Humidity</span>
-          <span class="info">{{weatherData.humidity}}</span>
+          <span class="info">{{weatherData.weather.humidity}}</span>
         </div>
       </div>
       <div class="detail">
         <fa-icon [size]="'lg'" [icon]="thermometherFull"></fa-icon>
         <div class="data">
           <span class="title">Feeling</span>
-          <span class="info">{{weatherData.feeling | temperature}}</span>
+          <span class="info">{{weatherData.weather.temperature.feeling | temperature}}</span>
         </div>
       </div>
     </div>
@@ -59,9 +59,9 @@
 		<div class="card-main">
 			<p class="city">{{weatherData.place.city}}</p>
 
-			<p class="temperature">{{weatherData.temperature | temperature}}</p>
+			<p class="temperature">{{weatherData.weather.temperature.current | temperature}}</p>
 
-			<p class="status">{{weatherData.status}}</p>
+			<p class="status">{{weatherData.weather.status}}</p>
 		</div>
 		<div class="divider">
 			<div style="height: 60px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M-3.10,106.08 C222.63,214.63 352.99,14.30 499.15,146.53 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: #3A6073;"></path></svg></div></div>
@@ -72,14 +72,14 @@
 					<fa-icon [size]="'lg'" [icon]="windIcon"></fa-icon>
 					<div class="data">
 						<span class="title">Wind</span>
-						<span class="info">{{weatherData.wind.speed}}</span>
+						<span class="info">{{weatherData.weather.wind.speed}}</span>
 					</div>
 				</div>
 				<div class="detail">
 					<fa-icon [size]="'lg'" [icon]="thermometherIcon"></fa-icon>
 					<div class="data">
 						<span class="title">Temp.</span>
-						<span class="info">{{weatherData.min | temperature}}/{{weatherData.max | temperature}}</span>
+						<span class="info">{{weatherData.weather.temperature.min | temperature}}/{{weatherData.weather.temperature.max | temperature}}</span>
 					</div>
 				</div>
 			</div>
@@ -88,14 +88,14 @@
 					<fa-icon [size]="'lg'" [icon]="cloudIcon"></fa-icon>
 					<div class="data">
 						<span class="title">Humidity</span>
-						<span class="info">{{weatherData.humidity}}</span>
+						<span class="info">{{weatherData.weather.humidity}}</span>
 					</div>
 				</div>
 				<div class="detail">
 					<fa-icon [size]="'lg'" [icon]="thermometherFull"></fa-icon>
 					<div class="data">
 						<span class="title">Feeling</span>
-						<span class="info">{{weatherData.feeling | temperature}}</span>
+						<span class="info">{{weatherData.weather.temperature.feeling | temperature}}</span>
 					</div>
 				</div>
 			</div>
