@@ -20,34 +20,34 @@ export class WeatherService {
 		return this.http
 			.get<CurrentWeather>(`${this.apiUrl}group?id=${this.cities}&units=metric&appid=${WEATHER_API_KEY}`)
 			.pipe(
-				map((res: any) => {
+				map((res: any): CurrentWeather[] => {
 					return res.list.map((data) => ({
 						place: {
 							id: data.id,
 							city: data.name,
+							coord: {
+								lat: data.coord.lat,
+								lon: data.coord.lon,
+							},
 						},
-						humidity: data.main.humidity,
-						pressure: data.main.pressure,
-						temperature: data.main.temp,
-						max: data.main.temp_max,
-						min: data.main.temp_min,
-						status: data.weather[0].main,
-						wind: {
-							deg: data.wind.deg,
-							speed: data.wind.speed,
+						weather: {
+							temperature: {
+								current: data.main.temp,
+								max: data.main.temp_max,
+								min: data.main.temp_min,
+								feeling: data.main.feels_like,
+							},
+							wind: {
+								deg: data.wind.deg,
+								speed: data.wind.speed,
+							},
+							humidity: data.main.humidity,
+							pressure: data.main.pressure,
+							status: data.weather[0].main,
 						},
-						feeling: data.main.feels_like,
 					}));
 				})
 			);
-	}
-
-	public getOneCity() {
-		return this.http.get(`${this.apiUrl}weather?id=2172797&appid=${WEATHER_API_KEY}`);
-	}
-
-	public getForecast(id: string) {
-		return this.http.get(`${this.apiUrl}forecast?id=${id}&appid=${WEATHER_API_KEY}`);
 	}
 
 	// USE THIS FOR FORECAST
