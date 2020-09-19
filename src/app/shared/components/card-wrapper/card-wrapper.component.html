@@ -1,0 +1,5 @@
+<div class="card-wrapper">
+	<ng-content select="[card]" *ngIf="_state !== cardState.CLOSED"></ng-content>
+	<ng-content select="[details]" *ngIf="_state === cardState.EXPANDED"></ng-content>
+	<ng-content select="[closed]" *ngIf="_state === cardState.CLOSED"></ng-content>
+</div>

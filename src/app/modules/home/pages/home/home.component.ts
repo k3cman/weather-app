@@ -13,7 +13,6 @@ export class HomeComponent implements OnInit {
 	public currentWeather$: Observable<CurrentWeather[]> = this.weatherService.getCurrentWeather();
 	public cardState = CardState;
 
-
 	data: any = [
 		{
 			name: 'Temperature',
@@ -83,12 +82,11 @@ export class HomeComponent implements OnInit {
 		},
 	];
 
-
+	public selected = null;
 
 	constructor(private weatherService: WeatherService) {}
 
 	public ngOnInit() {
 		// this.currentWeather$.subscribe((val) => console.log(val));
-
 	}
 }

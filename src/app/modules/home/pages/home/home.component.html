@@ -1,34 +1,19 @@
 <div class="container">
-	<div class="card-wrapper" *ngIf="currentWeather$ | async as currentWeathers; else loading">
-		<card *ngFor="let place of currentWeathers" [weatherData]="place">
-		</card>
-	</div>
 	<div class="card-wrapper" *ngIf="currentWeather$ | async as currentWeathers">
-		<card [weatherData]="currentWeathers[0]" [collapsed]="cardState.EXPANDED" [style.width]="'100%'"></card>
-	</div>
-<!--	<div class="card-wrapper" *ngIf="currentWeather$ | async as currentWeathers; else loading">-->
-<!--		<div class="expanded-card" [style.padding.px]="20">-->
-<!--			<ngx-charts-line-chart-->
-<!--				*ngIf="chartData$ | async as chartData"-->
-<!--				[showXAxisLabel]="false"-->
-<!--				[showYAxisLabel]="false"-->
-<!--				[xAxis]="true"-->
-<!--				[yAxis]="true"-->
-<!--				[timeline]="true"-->
-<!--				[results]="chartData"-->
-<!--				[showGridLines]="true"-->
-<!--				[curve]="curve"-->
-<!--				[tooltipDisabled]="true"-->
-<!--				[scheme]="'vivid'"-->
-<!--				[autoScale]="true"-->
-<!--				[roundDomains]="true"-->
-<!--			>-->
-<!--			</ngx-charts-line-chart>-->
-<!--		</div>-->
-<!--	</div>-->
+		<card-wrapper *ngFor="let place of currentWeathers" [card]="selected ? (selected === place.place.id ? cardState.EXPANDED : cardState.CLOSED) : null" (click)="selected = place.place.id">
+			<ng-container card>
+				<card [weatherData]="place">
+				</card>
+			</ng-container>
+			<ng-container closed>
+				{{place.weather.temperature.current | temperature}}
+			</ng-container>
+			<ng-container details>
+				<card-details></card-details>
+			</ng-container>
+		</card-wrapper>
 
-	<ng-template #loading>
-		<h1>LOADING</h1>
-	</ng-template>
+	</div>
+
 
 </div>
