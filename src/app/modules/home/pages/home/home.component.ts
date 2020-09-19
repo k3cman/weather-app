@@ -89,4 +89,8 @@ export class HomeComponent implements OnInit {
 	public ngOnInit() {
 		// this.currentWeather$.subscribe((val) => console.log(val));
 	}
+
+	close() {
+		this.selected = null;
+	}
 }

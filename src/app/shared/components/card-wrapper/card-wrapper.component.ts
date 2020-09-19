@@ -5,10 +5,10 @@ import { CardState } from '../card/card.component';
 	selector: 'card-wrapper',
 	templateUrl: './card-wrapper.component.html',
 	styleUrls: ['./card-wrapper.component.scss'],
-	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardWrapperComponent implements OnInit {
 	@Input() set card(state: CardState | null) {
+		console.log(state);
 		if (state === null) {
 			this._state = CardState.STANDARD;
 		} else {
