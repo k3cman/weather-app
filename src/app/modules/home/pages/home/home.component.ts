@@ -3,6 +3,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { CurrentWeather } from '../../../../shared/models/weather/current-weather.class';
 import { CardState } from '../../../../shared/components/card/card.component';
 import { WeatherService } from '../../../../core/http/weather/weather.service';
+import {Store} from "@ngrx/store";
+import {getCurrentWeather} from "../../../../core/store/actions/weather.actions";
 
 @Component({
 	selector: 'home',
@@ -84,9 +86,10 @@ export class HomeComponent implements OnInit {
 
 	public selected = null;
 
-	constructor(private weatherService: WeatherService) {}
+	constructor(private weatherService: WeatherService, private store: Store) {}
 
 	public ngOnInit() {
+		this.store.dispatch(getCurrentWeather());
 		// this.currentWeather$.subscribe((val) => console.log(val));
 	}
 
