@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { WEATHER_API_KEY } from '../../../configs/weather-api-key';
+import { WEATHER_API_KEY } from '../../../configs/api-key.config';
 import { map } from 'rxjs/operators';
 import { CurrentWeather } from '../../../shared/models/weather/current-weather.class';
 import { Observable } from 'rxjs';
 import { environment } from '../../../../environments/environment';
+import { cityIds } from '../../../configs/city-ids.config';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class WeatherService {
 	private apiUrl = environment.baseApiUrl;
-	private cities: string = '792680,2867714,2643741,3169070,658225';
+	private cities: string = cityIds.toString();
 
 	constructor(private http: HttpClient) {}
 
