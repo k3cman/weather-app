@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { CurrentWeather } from '../../models/weather/current-weather.class';
-import { faCloudRain, faThermometerFull, faThermometerHalf, faWind } from '@fortawesome/free-solid-svg-icons';
+import {faCloud, faCloudRain, faThermometerFull, faThermometerHalf, faWind} from '@fortawesome/free-solid-svg-icons';
 import { WeatherService } from '../../../core/http/weather/weather.service';
 
 export enum CardState {
@@ -25,6 +25,7 @@ export class CardComponent implements OnInit {
 	public thermometherIcon = faThermometerHalf;
 	public thermometherFull = faThermometerFull;
 	public cloudIcon = faCloudRain;
+	public cloudIcon2 = faCloud;
 
 	constructor(private service: WeatherService) {}
 
