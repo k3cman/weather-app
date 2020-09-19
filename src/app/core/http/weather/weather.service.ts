@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { WEATHER_API_KEY } from '../consts/weather-api';
+import { WEATHER_API_KEY } from '../../../consts/weather-api';
 import { map } from 'rxjs/operators';
-import { CurrentWeather } from '../models/weather/current-weather.class';
+import { CurrentWeather } from '../../../shared/models/weather/current-weather.class';
 import { Observable } from 'rxjs';
 
 @Injectable({

@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { CurrentWeather } from '../../../models/weather/current-weather.class';
+import { CurrentWeather } from '../../models/weather/current-weather.class';
 import { faCloudRain, faThermometerFull, faThermometerHalf, faWind } from '@fortawesome/free-solid-svg-icons';
-import { WeatherService } from '../../../services/weather.service';
+import { WeatherService } from '../../../core/http/weather/weather.service';
 
 export enum CardState {
 	CLOSED = 'closed',
