@@ -3,7 +3,6 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { CurrentWeather } from '../../../../shared/models/weather/current-weather.class';
 import { CardState } from '../../../../shared/components/card/card.component';
 import { WeatherService } from '../../../../core/http/weather/weather.service';
-import * as shape from 'd3-shape';
 
 @Component({
 	selector: 'home',
@@ -13,8 +12,7 @@ import * as shape from 'd3-shape';
 export class HomeComponent implements OnInit {
 	public currentWeather$: Observable<CurrentWeather[]> = this.weatherService.getCurrentWeather();
 	public cardState = CardState;
-	private _chartData$: BehaviorSubject<any> = new BehaviorSubject<any>(null);
-	public chartData$ = this._chartData$.asObservable();
+
 
 	data: any = [
 		{
@@ -85,34 +83,12 @@ export class HomeComponent implements OnInit {
 		},
 	];
 
-	public forecast$ = this.weatherService.getForecastForCity(44.8, 20.47);
 
-	curve = shape.curveMonotoneX;
 
 	constructor(private weatherService: WeatherService) {}
 
 	public ngOnInit() {
 		// this.currentWeather$.subscribe((val) => console.log(val));
-		this.forecast$.subscribe((val: any) => {
-			const hourly: any[] = val.hourly;
-			const nextHours = hourly.slice(0, 10);
-			console.log(new Date(nextHours[0].dt * 1000).getHours());
 
-			const data = nextHours.map((element) => {
-				return {
-					name: new Date(element.dt * 1000).getHours().toString(),
-					value: Math.ceil(element.temp),
-				};
-			});
-
-			this._chartData$.next([
-				{
-					name: 'Temperature',
-					series: [...data],
-				},
-			]);
-		});
-
-		this.chartData$.subscribe((val) => console.log(val));
 	}
 }
