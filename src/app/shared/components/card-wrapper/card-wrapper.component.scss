@@ -1,0 +1,21 @@
+
+
+.card-wrapper{
+	height:460px;
+	display: flex;
+	.card{
+		width: 260px;
+		height: 100%;
+	}
+	.closed{
+		width:30px;
+		background: red;
+		color: white;
+		height: 100%;
+	}
+	.details{
+		width:78%;
+		height: 100%;
+		background: white;
+	}
+}
