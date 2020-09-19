@@ -1,1 +1,16 @@
-<p>home works!</p>
+<div class="container">
+<!--	<div class="card-wrapper" *ngIf="currentWeather$ | async as currentWeathers; else loading">-->
+<!--		<card *ngFor="let place of currentWeathers" [weatherData]="place">-->
+<!--		</card>-->
+<!--	</div>-->
+	<div class="card-wrapper" *ngIf="currentWeather$ | async as currentWeathers; else loading">
+		<div class="expanded-card">
+			Nemanja
+		</div>
+	</div>
+
+	<ng-template #loading>
+		<h1>LOADING</h1>
+	</ng-template>
+
+</div>

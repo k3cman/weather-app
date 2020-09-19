@@ -1,15 +1,1 @@
-<div class="container">
-  <div class="card-wrapper" *ngIf="currentWeather$ | async as currentWeathers; else loading">
-    <card *ngFor="let place of currentWeathers" [weatherData]="place">
-    </card>
-  </div>
-	<div class="card-wrapper" *ngIf="currentWeather$ | async as currentWeathers; else loading">
-		<card *ngFor="let place of currentWeathers;let i = index" [collapsed]="i === 0 ? cardState.EXPANDED : cardState.CLOSED" [weatherData]="place" [style.flex]="i === 0 ? '20 1 auto' : '0 0 auto'" [style.margin-right.px]="20">
-		</card>
-	</div>
-
-  <ng-template #loading>
-    <h1>LOADING</h1>
-  </ng-template>
-
-</div>
+<home></home>
