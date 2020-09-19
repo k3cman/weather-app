@@ -1,23 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { WEATHER_API_KEY } from '../../../configs/weather-api';
+import { WEATHER_API_KEY } from '../../../configs/weather-api-key';
 import { map } from 'rxjs/operators';
 import { CurrentWeather } from '../../../shared/models/weather/current-weather.class';
 import { Observable } from 'rxjs';
+import { environment } from '../../../../environments/environment';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class WeatherService {
+	private apiUrl = environment.baseApiUrl;
 	private cities: string = '792680,2867714,2643741,3169070,658225';
 
 	constructor(private http: HttpClient) {}
 
 	public getCurrentWeather(): Observable<CurrentWeather[]> {
 		return this.http
-			.get<CurrentWeather>(
-				`http://api.openweathermap.org/data/2.5/group?id=${this.cities}&units=metric&appid=${WEATHER_API_KEY}`
-			)
+			.get<CurrentWeather>(`${this.apiUrl}group?id=${this.cities}&units=metric&appid=${WEATHER_API_KEY}`)
 			.pipe(
 				map((res: any) => {
 					return res.list.map((data) => ({
@@ -42,17 +42,15 @@ export class WeatherService {
 	}
 
 	public getOneCity() {
-		return this.http.get(`http://api.openweathermap.org/data/2.5/weather?id=2172797&appid=${WEATHER_API_KEY}`);
+		return this.http.get(`${this.apiUrl}weather?id=2172797&appid=${WEATHER_API_KEY}`);
 	}
 
 	public getForecast(id: string) {
-		return this.http.get(`http://api.openweathermap.org/data/2.5/forecast?id=${id}&appid=${WEATHER_API_KEY}`);
+		return this.http.get(`${this.apiUrl}forecast?id=${id}&appid=${WEATHER_API_KEY}`);
 	}
 
 	// USE THIS FOR FORECAST
 	public test() {
-		return this.http.get(
-			`https://api.openweathermap.org/data/2.5/onecall?lat=41.89&lon=12.48&appid=${WEATHER_API_KEY}`
-		);
+		return this.http.get(`${this.apiUrl}onecall?lat=41.89&lon=12.48&appid=${WEATHER_API_KEY}`);
 	}
 }
