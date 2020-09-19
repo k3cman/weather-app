@@ -52,6 +52,6 @@ export class WeatherService {
 
 	// USE THIS FOR FORECAST
 	public getForecastForCity(lat: number, lon: number) {
-		return this.http.get(`${this.apiUrl}onecall?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}`);
+		return this.http.get(`${this.apiUrl}onecall?lat=${lat}&lon=${lon}&units=metric&appid=${WEATHER_API_KEY}`);
 	}
 }

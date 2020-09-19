@@ -4,15 +4,21 @@
 <!--		</card>-->
 <!--	</div>-->
 	<div class="card-wrapper" *ngIf="currentWeather$ | async as currentWeathers; else loading">
-		<div class="expanded-card">
+		<div class="expanded-card" [style.padding.px]="20">
 			<ngx-charts-line-chart
+				*ngIf="chartData$ | async as chartData"
 				[showXAxisLabel]="false"
 				[showYAxisLabel]="false"
 				[xAxis]="true"
 				[yAxis]="true"
 				[timeline]="true"
-				[results]="data"
+				[results]="chartData"
 				[showGridLines]="true"
+				[curve]="curve"
+				[tooltipDisabled]="true"
+				[scheme]="'vivid'"
+				[autoScale]="true"
+				[roundDomains]="true"
 			>
 			</ngx-charts-line-chart>
 		</div>
