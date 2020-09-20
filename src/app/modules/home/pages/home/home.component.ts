@@ -4,7 +4,8 @@ import { CurrentWeather } from '../../../../shared/models/weather/current-weathe
 import { CardState } from '../../../../shared/components/card/card.component';
 import { WeatherService } from '../../../../core/http/weather/weather.service';
 import { Store } from '@ngrx/store';
-import { getCurrentWeather } from '../../../../core/store/actions/weather.actions';
+import { getCurrentWeather } from '../../../../core/store/actions/current-weather.actions';
+import { getForecast } from '../../../../core/store/actions/forecast.actions';
 
 @Component({
 	selector: 'home',
@@ -95,5 +96,10 @@ export class HomeComponent implements OnInit {
 
 	close() {
 		this.selected = null;
+	}
+
+	openDetails(location: CurrentWeather) {
+		console.log(location);
+		this.store.dispatch(getForecast({ lat: location.cord.lat, lon: location.cord.lon }));
 	}
 }

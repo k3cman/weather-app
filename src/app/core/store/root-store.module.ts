@@ -4,7 +4,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { environment } from '../../../environments/environment';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { rootReducers } from './root-reducers';
-import { WeatherEffect } from './effects/weather.effect';
+import { CurrentWeatherEffect } from './effects/current-weather.effect';
+import { ForecastEffect } from './effects/forecast.effect';
 
 @NgModule({
 	imports: [
@@ -16,7 +17,7 @@ import { WeatherEffect } from './effects/weather.effect';
 				strictActionSerializability: false,
 			},
 		}),
-		EffectsModule.forRoot([WeatherEffect]),
+		EffectsModule.forRoot([CurrentWeatherEffect, ForecastEffect]),
 
 		!environment.production ? StoreDevtoolsModule.instrument({ maxAge: 25 }) : [],
 	],

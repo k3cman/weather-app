@@ -11,7 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RootStoreModule } from './core/store/root-store.module';
 import { Store } from '@ngrx/store';
 import { AppState } from './core/store/models/app.state';
-import { getCurrentWeather } from './core/store/actions/weather.actions';
+import { getCurrentWeather } from './core/store/actions/current-weather.actions';
 
 @NgModule({
 	declarations: [AppComponent],

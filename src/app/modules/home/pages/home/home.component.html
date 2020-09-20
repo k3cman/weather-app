@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="card-wrapper" *ngIf="currentWeather$ | async as currentWeathers">
-		<card-wrapper *ngFor="let place of currentWeathers" [card]="selected === null ? cardState.STANDARD : (selected === place.place.id ? cardState.EXPANDED : cardState.CLOSED)" (click)="selected = place.place.id"
+		<card-wrapper *ngFor="let place of currentWeathers" [card]="selected === null ? cardState.STANDARD : (selected === place.place.id ? cardState.EXPANDED : cardState.CLOSED)" (click)="openDetails(place)"
 			[style.flex]="selected === place.place.id ? '28 1 0' : '1 1 0'"
 		>
 			<ng-container card>

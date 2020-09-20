@@ -4,7 +4,7 @@ export interface AppState {
 	// Store current weather data
 	currentWeather: CurrentWeather[];
 	// Store
-	selectedForecast: any;
+	selected: any;
 	// Cached data
 	forecasts: any[];
 	// Loading indicator
