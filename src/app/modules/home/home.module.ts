@@ -4,7 +4,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { CardModule } from '../../shared/components/card/card.module';
 import { LineChartModule } from '@swimlane/ngx-charts';
 import { CardWrapperModule } from '../../shared/components/card-wrapper/card-wrapper.module';
-import { PipesModule } from '../../shared/pipes/pipes.module/pipes.module';
+import { PipesModule } from '../../core/pipes/pipes.module';
 import { CardDetailsModule } from '../../shared/components/card-details/card-details.module';
 
 @NgModule({

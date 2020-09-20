@@ -22,13 +22,13 @@ export class WeatherService {
 			.pipe(
 				map((res: any): CurrentWeather[] => {
 					return res.list.map((data) => ({
+						cord: {
+							lat: data.coord.lat,
+							lon: data.coord.lon,
+						},
 						place: {
 							id: data.id,
 							city: data.name,
-							coord: {
-								lat: data.coord.lat,
-								lon: data.coord.lon,
-							},
 						},
 						weather: {
 							temperature: {

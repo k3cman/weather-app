@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TemperaturePipe } from './temperature.pipe';
+import { TemperaturePipe } from './temperature/temperature.pipe';
 
 @NgModule({
 	declarations: [TemperaturePipe],

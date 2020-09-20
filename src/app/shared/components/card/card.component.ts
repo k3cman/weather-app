@@ -1,8 +1,8 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { CurrentWeather } from '../../models/weather/current-weather.class';
-import {faCloud, faCloudRain, faThermometerFull, faThermometerHalf, faWind} from '@fortawesome/free-solid-svg-icons';
+import { faCloud, faCloudRain, faThermometerFull, faThermometerHalf, faWind } from '@fortawesome/free-solid-svg-icons';
 import { WeatherService } from '../../../core/http/weather/weather.service';
-import {BehaviorSubject} from "rxjs";
+import { BehaviorSubject } from 'rxjs';
 import * as shape from 'd3-shape';
 
 export enum CardState {
@@ -39,7 +39,6 @@ export class CardComponent implements OnInit {
 		this.forecast$.subscribe((val: any) => {
 			const hourly: any[] = val.hourly;
 			const nextHours = hourly.slice(0, 10);
-			console.log(new Date(nextHours[0].dt * 1000).getHours());
 
 			const data = nextHours.map((element) => {
 				return {
@@ -55,7 +54,5 @@ export class CardComponent implements OnInit {
 				},
 			]);
 		});
-
-		this.chartData$.subscribe((val) => console.log(val));
 	}
 }
