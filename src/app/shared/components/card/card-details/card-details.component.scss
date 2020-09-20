@@ -17,6 +17,8 @@
 .buttons{
 	margin-left:10px;
 	margin-bottom:30px;
+	display: flex;
+	justify-content: space-between;
 	button{
 		outline:none;
 		border:none;
@@ -26,6 +28,7 @@
 		margin-right:10px;
 		border-radius: 5px;
 		cursor: pointer;
+		min-width: 50px;
 		&:hover{
 			background: #481e41;
 		}
@@ -38,6 +41,7 @@
 .chart{
 	width:100%;
 	height:100%;
+	animation: 2s ease in;
 }
 
 .close{

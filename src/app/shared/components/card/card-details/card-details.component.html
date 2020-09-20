@@ -2,8 +2,15 @@
 	Forecast
 </div>
 <div class="buttons">
-	<button [ngClass]="{active: activeForecast === forecastType.TEMPERATURE}" (click)="setForecastType(forecastType.TEMPERATURE)">Temperature</button>
-	<button [ngClass]="{active: activeForecast === forecastType.WIND}" (click)="setForecastType(forecastType.WIND)">Wind</button>
+	<div>
+		<button [ngClass]="{active: activeForecast === forecastType.TEMPERATURE}" (click)="setForecastType(forecastType.TEMPERATURE)">Temperature</button>
+		<button [ngClass]="{active: activeForecast === forecastType.WIND}" (click)="setForecastType(forecastType.WIND)">Wind</button>
+	</div>
+	<div>
+		<button [ngClass]="{active: numberOfHours === 8}" (click)="changeHours(8)">8h</button>
+		<button [ngClass]="{active: numberOfHours === 12}" (click)="changeHours(12)">12h</button>
+		<button [ngClass]="{active: numberOfHours === 24}" (click)="changeHours(24)">24h</button>
+	</div>
 </div>
 
 <div class="chart">

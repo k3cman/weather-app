@@ -18,7 +18,5 @@ export class CardComponent {
 
 	public windIcon = faWind;
 	public thermometherIcon = faThermometerHalf;
-	public thermometherFull = faThermometerFull;
-	public cloudIcon = faCloudRain;
 	public cloudIcon2 = faCloud;
 }
