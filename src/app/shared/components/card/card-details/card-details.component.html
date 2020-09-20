@@ -3,13 +3,10 @@
 </div>
 <div class="buttons">
 	<div>
-		<button [ngClass]="{active: activeForecast === forecastType.TEMPERATURE}" (click)="setForecastType(forecastType.TEMPERATURE)">Temperature</button>
-		<button [ngClass]="{active: activeForecast === forecastType.WIND}" (click)="setForecastType(forecastType.WIND)">Wind</button>
+		<buttons [buttons]="forecastButtons" [active]="activeForecast" (selected)="setForecastType($event)"></buttons>
 	</div>
 	<div>
-		<button [ngClass]="{active: numberOfHours === 8}" (click)="changeHours(8)">8h</button>
-		<button [ngClass]="{active: numberOfHours === 12}" (click)="changeHours(12)">12h</button>
-		<button [ngClass]="{active: numberOfHours === 24}" (click)="changeHours(24)">24h</button>
+		<buttons [buttons]="hourButtons" [active]="numberOfHours" (selected)="changeHours($event)"></buttons>
 	</div>
 </div>
 

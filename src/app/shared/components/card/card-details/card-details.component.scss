@@ -19,23 +19,7 @@
 	margin-bottom:30px;
 	display: flex;
 	justify-content: space-between;
-	button{
-		outline:none;
-		border:none;
-		background: #662E55;
-		padding:10px 6px;
-		color:white;
-		margin-right:10px;
-		border-radius: 5px;
-		cursor: pointer;
-		min-width: 50px;
-		&:hover{
-			background: #481e41;
-		}
-		&.active{
-			background: #B84E7E;
-		}
-	}
+
 }
 
 .chart{
