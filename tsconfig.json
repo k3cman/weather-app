@@ -13,5 +13,23 @@
     {
       "path": "./tsconfig.spec.json"
     }
-]
+],
+	"compilerOptions": {
+
+		"baseUrl": "./",
+	"paths": {
+		"@store": ["src/app/core/store/*"],
+		"@configs": ["src/configs/*"],
+		"@core": ["src/app/core/*"],
+		"@http": ["src/app/http/*"],
+		"@interceptors": ["src/app/interceptors/*"],
+		"@pipes":["src/app/pipes/*"],
+		"@modules": ["src/app/modules/*"],
+		"@shared": ["src/app/shared/*"],
+		"@animations": ["src/app/shared/animations/*"],
+		"@components": ["src/app/shared/components/*"],
+		"@directives": ["src/app/shared/directives/*"],
+		"@models": ["src/app/shared/models/*"]
+	}
+	}
 }
