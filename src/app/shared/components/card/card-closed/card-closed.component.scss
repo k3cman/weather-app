@@ -1,7 +1,7 @@
 @import '../../../../../assets/scss/shadow';
 
 .card-closed{
-	width:40px;
+	width:45px;
 	height: 100%;
 	background:black;
 	color:white;
@@ -20,9 +20,9 @@
 
 	.city{
 		position:absolute;
-		top: 30px;
+		top: 50px;
 		left: 50%;
-		transform: translate(-50%, 0) rotate(90deg);
+		transform: translate(-50%, -50%) rotate(90deg);
 	}
 	.temperature{
 		position: absolute;

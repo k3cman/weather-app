@@ -1,6 +1,6 @@
 .container{
 	max-width:1440px;
-	margin: 5em auto;
+	margin: 8em auto;
 	height:100%;
 }
 
@@ -18,6 +18,6 @@ card-wrapper{
 	&.expanded-card{
 		flex:20 1 0;
 		display: block;
-		margin-right: 35px;;
+		margin-right: 25px;;
 	}
 }
