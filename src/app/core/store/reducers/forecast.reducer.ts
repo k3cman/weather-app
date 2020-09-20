@@ -2,7 +2,7 @@ import { createReducer, on } from '@ngrx/store';
 import { getForecast, getForecastSuccess } from '../actions/forecast.actions';
 
 const forecastReducerDef = createReducer(
-	null,
+	{ selected: null, updated: null },
 	on(getForecastSuccess, (state, props) => {
 		return {
 			...state,
