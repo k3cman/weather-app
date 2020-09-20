@@ -15,7 +15,6 @@ export class CardDetailsComponent implements OnInit {
 	private forecastData$: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 	public forecast$ = this.forecastData$.asObservable();
 	public activeForecast: ForecastType = ForecastType.TEMPERATURE;
-	public forecastType = ForecastType;
 	public numberOfHours: number = 8;
 
 	public forecastButtons = [
