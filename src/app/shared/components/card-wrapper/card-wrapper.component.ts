@@ -4,6 +4,7 @@ import { Coordinates } from '../../models/weather/coordinates.model';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../../core/store/models/app.state';
 import { getUISelected } from '../../../core/store/selectors/user-interface.selector';
+import { filter } from 'rxjs/operators';
 
 @Component({
 	selector: 'card-wrapper',
@@ -39,9 +40,9 @@ export class CardWrapperComponent implements OnInit {
 	ngOnInit(): void {}
 
 	private initListener() {
-		this.selectedElement$.subscribe((res) => {
+		this.selectedElement$.pipe(filter((e) => e !== undefined)).subscribe((res) => {
 			console.log(res);
-			if (!res) {
+			if (res === null) {
 				this._state = CardState.STANDARD;
 			} else {
 				this._state = res.id === this.id ? CardState.EXPANDED : CardState.CLOSED;

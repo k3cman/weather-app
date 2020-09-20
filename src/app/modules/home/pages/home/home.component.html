@@ -1,19 +1,19 @@
 <div class="container">
 	<div class="card-wrapper" *ngIf="currentWeather$ | async as currentWeathers">
 		<ng-container *ngFor="let place of currentWeathers">
-			<card-wrapper   (click)="openDetails(place)"
+			<card-wrapper
 						   [style.flex]="selected === place.place.id ? '28 1 0' : '1 1 0'"
 						   [cords]="{cords: place.cord, id: place.place.id}"
 			>
 				<ng-container card>
-					<card [weatherData]="place">
+					<card [weatherData]="place" (click)="openDetails(place)">
 					</card>
 				</ng-container>
 				<ng-container closed>
 					{{place.weather.temperature.current | temperature}}
 				</ng-container>
 				<ng-container details>
-					<card-details (close)="close()"></card-details>
+					<card-details (close)="close()" (click)="$event.stopPropagation()"></card-details>
 				</ng-container>
 			</card-wrapper>
 		</ng-container>

@@ -5,6 +5,7 @@ import { CardState } from '../../../../shared/components/card/card.component';
 import { WeatherService } from '../../../../core/http/weather/weather.service';
 import { Store } from '@ngrx/store';
 import { getForecast } from '../../../../core/store/actions/forecast.actions';
+import { clearSelected } from '../../../../core/store/actions/user-interface.actions';
 
 @Component({
 	selector: 'home',
@@ -94,11 +95,10 @@ export class HomeComponent implements OnInit {
 	}
 
 	close() {
-		this.selected = null;
+		this.store.dispatch(clearSelected());
 	}
 
 	openDetails(location: CurrentWeather) {
-		console.log(location);
 		this.store.dispatch(getForecast({ lat: location.cord.lat, lon: location.cord.lon, id: location.place.id }));
 	}
 }
