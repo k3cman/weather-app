@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +9,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HomeModule } from './modules/home/home.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RootStoreModule } from './core/store/root-store.module';
+import { Store } from '@ngrx/store';
+import { AppState } from './core/store/models/app.state';
+import { getCurrentWeather } from './core/store/actions/weather.actions';
 
 @NgModule({
 	declarations: [AppComponent],
@@ -22,7 +25,18 @@ import { RootStoreModule } from './core/store/root-store.module';
 		BrowserAnimationsModule,
 		RootStoreModule,
 	],
-	providers: [],
+	providers: [
+		{
+			provide: APP_INITIALIZER,
+			useFactory: (store: Store<AppState>) => {
+				return () => {
+					store.dispatch(getCurrentWeather());
+				};
+			},
+			multi: true,
+			deps: [Store],
+		},
+	],
 	bootstrap: [AppComponent],
 })
 export class AppModule {}
