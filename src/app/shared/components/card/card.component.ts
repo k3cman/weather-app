@@ -3,8 +3,8 @@ import { CurrentWeather } from '../../models/weather/current-weather.class';
 import { faCloud, faCloudRain, faThermometerFull, faThermometerHalf, faWind } from '@fortawesome/free-solid-svg-icons';
 import { WeatherService } from '../../../core/http/weather/weather.service';
 import { BehaviorSubject } from 'rxjs';
-import * as shape from 'd3-shape';
 
+import * as shape from 'd3-shape';
 export enum CardState {
 	CLOSED = 'closed',
 	STANDARD = 'standard',

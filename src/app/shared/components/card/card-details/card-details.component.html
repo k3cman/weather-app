@@ -1,2 +1,16 @@
-<p>card-details works!</p>
-<button (click)="close.emit()">X</button>
+<ngx-charts-line-chart
+	*ngIf="chartData$ | async as chartData"
+	[showXAxisLabel]="false"
+	[showYAxisLabel]="false"
+	[xAxis]="true"
+	[yAxis]="true"
+	[timeline]="true"
+	[results]="chartData"
+	[showGridLines]="true"
+	[curve]="curve"
+	[tooltipDisabled]="true"
+	[scheme]="'night'"
+	[autoScale]="true"
+	[roundDomains]="true"
+>
+</ngx-charts-line-chart>
