@@ -4,11 +4,11 @@
 - [x] Add styles
 - [x] Add Store
 - STORE
-- [ ] Add store for current weather
-- [ ] Add store for forecast
+- [x] Add store for current weather
+- [x] Add store for forecast
 - [ ] Add memorizing to store
 - [ ] Add memorizing to localstorage
-- [ ] Add store for ui interactions
+- [x] Add store for ui interactions
 - Styles
 - [ ] Add styles for night and day
 - [ ] Add all icons for the status of weather
@@ -28,7 +28,7 @@
 - [ ] Add dark/light theme
  
 - DETAILS COMPONENT
-- [ ] Try to add one more row on top and bottom of chart
-- [ ] Try other chart ?
+- [x] Try to add one more row on top and bottom of chart
+- [x] Try other chart ?
 
 DO DETAILS COMPONENT AFTER THE STORE IMPLEMENTATION

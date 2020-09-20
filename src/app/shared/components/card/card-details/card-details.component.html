@@ -1,0 +1,36 @@
+<div class="header">
+	Forecast
+</div>
+<div class="buttons">
+	<div>
+		<button [ngClass]="{active: activeForecast === forecastType.TEMPERATURE}" (click)="setForecastType(forecastType.TEMPERATURE)">Temperature</button>
+		<button [ngClass]="{active: activeForecast === forecastType.WIND}" (click)="setForecastType(forecastType.WIND)">Wind</button>
+	</div>
+	<div>
+		<button [ngClass]="{active: numberOfHours === 8}" (click)="changeHours(8)">8h</button>
+		<button [ngClass]="{active: numberOfHours === 12}" (click)="changeHours(12)">12h</button>
+		<button [ngClass]="{active: numberOfHours === 24}" (click)="changeHours(24)">24h</button>
+	</div>
+</div>
+
+<div class="chart">
+	<ngx-charts-line-chart
+		*ngIf="chartData$ | async as chartData"
+		[showXAxisLabel]="false"
+		[showYAxisLabel]="false"
+		[xAxis]="true"
+		[yAxis]="true"
+		[timeline]="true"
+		[results]="activeForecast === forecastType.TEMPERATURE ? chartData.temperature : chartData.wind"
+		[showGridLines]="true"
+		[curve]="curve"
+		[tooltipDisabled]="true"
+		[scheme]="'night'"
+		[autoScale]="true"
+		[roundDomains]="true"
+		[yAxisTickFormatting]="formatYAxis"
+	>
+	</ngx-charts-line-chart>
+</div>
+
+<button class="close" (click)="close.emit()">X</button>
