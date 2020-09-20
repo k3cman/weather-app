@@ -1,9 +1,10 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
 	selector: 'buttons',
 	templateUrl: './buttons.component.html',
 	styleUrls: ['./buttons.component.scss'],
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonsComponent implements OnInit {
 	@Input() public buttons: any;

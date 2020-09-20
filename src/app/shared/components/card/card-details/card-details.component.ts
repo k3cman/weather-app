@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../../../core/store/models/app.state';
 import { selectCurrentForecast } from '../../../../core/store/selectors/forecast.selector';
@@ -10,6 +10,7 @@ import { ForecastType } from '../../../models/enums/forecast-type.enum';
 	selector: 'card-details',
 	templateUrl: './card-details.component.html',
 	styleUrls: ['./card-details.component.scss'],
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardDetailsComponent implements OnInit {
 	private forecastData$: BehaviorSubject<any> = new BehaviorSubject<any>(null);

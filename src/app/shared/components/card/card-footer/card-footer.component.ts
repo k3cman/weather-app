@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CurrentWeather } from '../../../models/weather/current-weather.class';
 import {
 	faBolt,
@@ -16,6 +16,7 @@ import {
 	selector: 'card-footer',
 	templateUrl: './card-footer.component.html',
 	styleUrls: ['./card-footer.component.scss'],
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardFooterComponent {
 	@Input() set weatherData(data: CurrentWeather) {
