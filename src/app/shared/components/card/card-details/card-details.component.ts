@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppState } from '../../../core/store/models/app.state';
-import { selectCurrentForecast } from '../../../core/store/selectors/forecast.selector';
+import { AppState } from '../../../../core/store/models/app.state';
+import { selectCurrentForecast } from '../../../../core/store/selectors/forecast.selector';
 import { filter } from 'rxjs/operators';
 
 @Component({

@@ -9,7 +9,7 @@
 					</card>
 				</ng-container>
 				<ng-container closed>
-					{{place.weather.temperature.current | temperature}}
+					<card-closed></card-closed>
 				</ng-container>
 				<ng-container details>
 					<card-details (close)="close()" (click)="$event.stopPropagation()"></card-details>
