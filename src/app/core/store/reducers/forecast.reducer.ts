@@ -4,7 +4,6 @@ import { getForecast, getForecastSuccess } from '../actions/forecast.actions';
 const forecastReducerDef = createReducer(
 	null,
 	on(getForecastSuccess, (state, props) => {
-		console.log(state);
 		return {
 			...state,
 			selected: props.data,

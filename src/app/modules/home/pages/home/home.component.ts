@@ -100,6 +100,6 @@ export class HomeComponent implements OnInit {
 
 	openDetails(location: CurrentWeather) {
 		console.log(location);
-		this.store.dispatch(getForecast({ lat: location.cord.lat, lon: location.cord.lon }));
+		this.store.dispatch(getForecast({ lat: location.cord.lat, lon: location.cord.lon, id: location.place.id }));
 	}
 }
