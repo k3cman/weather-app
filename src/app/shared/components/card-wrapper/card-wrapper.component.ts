@@ -1,4 +1,4 @@
-import { Component, HostBinding, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
 import { CardState } from '../card/card.component';
 import { Coordinates } from '../../models/weather/coordinates.model';
 import { Store } from '@ngrx/store';
