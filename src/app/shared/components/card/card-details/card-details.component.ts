@@ -11,10 +11,12 @@ export enum ForecastType {
 }
 
 import * as shape from 'd3-shape';
+import { TemperaturePipe } from '../../../../core/pipes/temperature/temperature.pipe';
 @Component({
 	selector: 'card-details',
 	templateUrl: './card-details.component.html',
 	styleUrls: ['./card-details.component.scss'],
+	providers: [TemperaturePipe],
 })
 export class CardDetailsComponent implements OnInit {
 	@Output() public readonly close: EventEmitter<void> = new EventEmitter<void>();
@@ -24,7 +26,10 @@ export class CardDetailsComponent implements OnInit {
 	public activeForecast: ForecastType = ForecastType.TEMPERATURE;
 	public forecastType = ForecastType;
 
-	constructor(private store: Store<AppState>) {}
+	formatYAxis = (value) =>
+		`${this.activeForecast === ForecastType.TEMPERATURE ? this.temperaturePipe.transform(value) : value}`;
+
+	constructor(private store: Store<AppState>, private temperaturePipe: TemperaturePipe) {}
 
 	curve = shape.curveMonotoneX;
 	ngOnInit(): void {
@@ -38,7 +43,7 @@ export class CardDetailsComponent implements OnInit {
 				const temperature = nextHours.map((element) => {
 					return {
 						name: new Date(element.dt * 1000).getHours().toString() + ':00',
-						value: Math.ceil(element.temp),
+						value: element.temp,
 					};
 				});
 
