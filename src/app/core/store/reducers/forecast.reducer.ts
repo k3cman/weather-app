@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { getForecast, getForecastSuccess } from '../actions/forecast.actions';
+import { getForecastSuccess } from '../actions/forecast.actions';
 
 const forecastReducerDef = createReducer(
 	{ selected: null, updated: null },

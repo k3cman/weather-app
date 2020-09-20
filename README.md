@@ -11,14 +11,14 @@
 - [x] Add store for ui interactions
 - Styles
 - [ ] Add styles for night and day
-- [ ] Add all icons for the status of weather
+- [x] Add all icons for the status of weather
 - [ ] Add animations
 - Tests
 - [ ] Add unit tests
 
 
 
-- [ ] Implement on push
+- [x] Implement on push
 - [ ] Implement resolver/lazy loaders
 - [ ] Add global interceptor for loading
 - [ ] Add interceptor for error handling
