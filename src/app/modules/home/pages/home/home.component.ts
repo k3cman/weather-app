@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { CurrentWeather } from '../../../../shared/models/weather/current-weather.class';
 import { CardState } from '../../../../shared/components/card/card.component';
 import { WeatherService } from '../../../../core/http/weather/weather.service';
 import { Store } from '@ngrx/store';
-import { getCurrentWeather } from '../../../../core/store/actions/current-weather.actions';
 import { getForecast } from '../../../../core/store/actions/forecast.actions';
 
 @Component({
