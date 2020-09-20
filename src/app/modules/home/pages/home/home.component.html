@@ -9,7 +9,7 @@
 					</card>
 				</ng-container>
 				<ng-container closed>
-					<card-closed></card-closed>
+					<card-closed [weatherData]="place"></card-closed>
 				</ng-container>
 				<ng-container details>
 					<card-details (close)="close()" (click)="$event.stopPropagation()"></card-details>

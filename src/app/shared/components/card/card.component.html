@@ -1,4 +1,4 @@
-<div class="card" *ngIf="state === cardState.STANDARD">
+<div class="card">
   <div class="city">
 	  {{weatherData.place.city}}
   </div>
@@ -21,71 +21,5 @@
 				</div>
 			</div>
 		</div>
-	</div>
-
-</div>
-
-<div class="card-closed" *ngIf="state === cardState.CLOSED">
-	<div class="city">
-		{{weatherData.place.city}}
-	</div>
-</div>
-
-<div class="card-expanded" *ngIf="state === cardState.EXPANDED">
-	<div class="card no-shadow">
-		<div class="city">
-			{{weatherData.place.city}}
-		</div>
-
-		<div class="weather">
-			<div class="temperature">
-				27C
-			</div>
-			<div class="details">
-				<fa-icon [icon]="cloudIcon2" [size]="'lg'"></fa-icon>
-				<span>sunny</span>
-				<div class="details-info">
-					<div>
-						<fa-icon [icon]="thermometherIcon"></fa-icon>
-						13/21
-					</div>
-					<div>
-						<fa-icon [icon]="windIcon"></fa-icon>
-						5
-					</div>
-				</div>
-			</div>
-		</div>
-
-
-	</div>
-	<div class="chart">
-		<div class="header">
-			<button class="button">
-				Temperature
-			</button>
-			<button class="button">
-				Wind
-			</button>
-		</div>
-					<div class="data">
-						<ngx-charts-line-chart
-							*ngIf="chartData$ | async as chartData"
-							[showXAxisLabel]="false"
-							[showYAxisLabel]="false"
-							[xAxis]="true"
-							[yAxis]="true"
-							[timeline]="true"
-							[results]="chartData"
-							[showGridLines]="true"
-							[curve]="curve"
-							[tooltipDisabled]="true"
-							[scheme]="'night'"
-							[autoScale]="true"
-							[roundDomains]="true"
-						>
-						</ngx-charts-line-chart>
-					</div>
-
 	</div>
 </div>
