@@ -2,7 +2,6 @@
 	<div class="card-wrapper" *ngIf="currentWeather$ | async as currentWeathers">
 		<ng-container *ngFor="let place of currentWeathers">
 			<card-wrapper (click)="openDetails(place)"
-						   [style.flex]="selected === place.place.id ? '28 1 0' : '1 1 0'"
 						   [cords]="{cords: place.cord, id: place.place.id}"
 			>
 				<ng-container card>
@@ -17,9 +16,5 @@
 				</ng-container>
 			</card-wrapper>
 		</ng-container>
-
-
 	</div>
-
-
 </div>

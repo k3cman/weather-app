@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostBinding, Input, OnInit } from '@angular/core';
 import { CardState } from '../card/card.component';
 import { Coordinates } from '../../models/weather/coordinates.model';
 import { Store } from '@ngrx/store';
@@ -35,6 +35,8 @@ export class CardWrapperComponent implements OnInit {
 		this.id = value.id;
 	}
 
+	@HostBinding('class.expanded-card') expandedClass: boolean = false;
+
 	constructor(private store: Store<AppState>) {}
 
 	ngOnInit(): void {}
@@ -44,8 +46,10 @@ export class CardWrapperComponent implements OnInit {
 			console.log(res);
 			if (res === null) {
 				this._state = CardState.STANDARD;
+				this.expandedClass = false;
 			} else {
 				this._state = res.id === this.id ? CardState.EXPANDED : CardState.CLOSED;
+				this.expandedClass = res.id === this.id;
 			}
 		});
 	}
