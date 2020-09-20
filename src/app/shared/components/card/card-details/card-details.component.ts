@@ -5,6 +5,8 @@ import { selectCurrentForecast } from '../../../../core/store/selectors/forecast
 import { filter } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 import { ForecastType } from '../../../models/enums/forecast-type.enum';
+import { HOUR_BUTTON_OPTIONS } from '../../../consts/hour-button-options';
+import { FORECAST_BUTTON_OPTIONS } from '../../../consts/forecast-button-options';
 
 @Component({
 	selector: 'card-details',
@@ -18,31 +20,9 @@ export class CardDetailsComponent implements OnInit {
 	public activeForecast: ForecastType = ForecastType.TEMPERATURE;
 	public numberOfHours: number = 8;
 
-	public forecastButtons = [
-		{
-			value: ForecastType.TEMPERATURE,
-			title: 'Temperature',
-		},
-		{
-			value: ForecastType.WIND,
-			title: 'Wind',
-		},
-	];
+	public forecastButtons = FORECAST_BUTTON_OPTIONS;
 
-	public hourButtons = [
-		{
-			value: 8,
-			title: '8h',
-		},
-		{
-			value: 12,
-			title: '12h',
-		},
-		{
-			value: 24,
-			title: '24h',
-		},
-	];
+	public hourButtons = HOUR_BUTTON_OPTIONS;
 
 	@Output() public readonly close: EventEmitter<void> = new EventEmitter<void>();
 
