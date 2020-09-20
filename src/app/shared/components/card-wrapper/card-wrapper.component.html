@@ -1,11 +1,11 @@
 <div class="card-wrapper">
-	<div class="card" *ngIf="_state !== cardState.CLOSED">
+	<div class="card" *ngIf="currentState !== cardState.CLOSED">
 		<ng-content select="[card]"></ng-content>
 	</div>
-	<div class="details" *ngIf="_state === cardState.EXPANDED">
+	<div class="details" *ngIf="currentState === cardState.EXPANDED">
 	<ng-content select="[details]"></ng-content>
 	</div>
-	<div class="closed" *ngIf="_state === cardState.CLOSED">
+	<div class="closed" *ngIf="currentState === cardState.CLOSED">
 	<ng-content select="[closed]"></ng-content>
 	</div>
 </div>

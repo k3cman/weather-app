@@ -1,0 +1,17 @@
+<ngx-charts-line-chart
+	*ngIf="chartData$ | async as data"
+	[showXAxisLabel]="false"
+	[showYAxisLabel]="false"
+	[xAxis]="true"
+	[yAxis]="true"
+	[timeline]="true"
+	[results]="forecastType === forecastTypes.TEMPERATURE ? data.temperature : data.wind"
+	[showGridLines]="true"
+	[curve]="curve"
+	[tooltipDisabled]="true"
+	[scheme]="'night'"
+	[autoScale]="true"
+	[roundDomains]="true"
+	[yAxisTickFormatting]="formatYAxis"
+>
+</ngx-charts-line-chart>

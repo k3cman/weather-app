@@ -1,4 +1,4 @@
-import { Component, HostBinding, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
 import { CardState } from '../card/card.component';
 import { Coordinates } from '../../models/weather/coordinates.model';
 import { Store } from '@ngrx/store';
@@ -11,17 +11,8 @@ import { filter } from 'rxjs/operators';
 	templateUrl: './card-wrapper.component.html',
 	styleUrls: ['./card-wrapper.component.scss'],
 })
-export class CardWrapperComponent implements OnInit {
-	// @Input() set card(state: CardState | null) {
-	// 	console.log(state);
-	// 	if (state === null) {
-	// 		this._state = CardState.STANDARD;
-	// 	} else {
-	// 		this._state = state;
-	// 	}
-	// }
-
-	public _state = CardState.STANDARD;
+export class CardWrapperComponent {
+	public currentState = CardState.STANDARD;
 	public cardState = CardState;
 
 	public coordinates: Coordinates;
@@ -39,16 +30,13 @@ export class CardWrapperComponent implements OnInit {
 
 	constructor(private store: Store<AppState>) {}
 
-	ngOnInit(): void {}
-
 	private initListener() {
 		this.selectedElement$.pipe(filter((e) => e !== undefined)).subscribe((res) => {
-			console.log(res);
 			if (res === null) {
-				this._state = CardState.STANDARD;
+				this.currentState = CardState.STANDARD;
 				this.expandedClass = false;
 			} else {
-				this._state = res.id === this.id ? CardState.EXPANDED : CardState.CLOSED;
+				this.currentState = res.id === this.id ? CardState.EXPANDED : CardState.CLOSED;
 				this.expandedClass = res.id === this.id;
 			}
 		});

@@ -12,5 +12,6 @@ export class CurrentWeather {
 		humidity: number;
 		pressure: number;
 		status: string;
+		icon: string;
 	};
 }

@@ -6,10 +6,13 @@ import { PipesModule } from '../../../core/pipes/pipes.module';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { CardDetailsComponent } from './card-details/card-details.component';
 import { CardClosedComponent } from './card-closed/card-closed.component';
+import { CardFooterComponent } from './card-footer/card-footer.component';
+import { ForecastModule } from '../forecast/forecast.module';
+import { ButtonsModule } from '../buttons/buttons.module';
 
 @NgModule({
-	declarations: [CardComponent, CardDetailsComponent, CardClosedComponent],
+	declarations: [CardComponent, CardDetailsComponent, CardClosedComponent, CardFooterComponent],
 	exports: [CardComponent, CardDetailsComponent, CardClosedComponent],
-	imports: [CommonModule, FontAwesomeModule, PipesModule, NgxChartsModule],
+	imports: [CommonModule, FontAwesomeModule, PipesModule, NgxChartsModule, ForecastModule, ButtonsModule],
 })
 export class CardModule {}

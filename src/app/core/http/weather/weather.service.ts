@@ -44,6 +44,7 @@ export class WeatherService {
 							humidity: data.main.humidity,
 							pressure: data.main.pressure,
 							status: data.weather[0].main,
+							icon: data.weather[0].icon,
 						},
 					}));
 				})

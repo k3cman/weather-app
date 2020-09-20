@@ -8,18 +8,7 @@
 			{{weatherData.weather.temperature.current | temperature}}
 		</div>
 		<div class="details">
-			<fa-icon [icon]="cloudIcon2" [size]="'lg'"></fa-icon>
-			<span>sunny</span>
-			<div class="details-info">
-				<div>
-					<fa-icon [icon]="thermometherIcon"></fa-icon>
-					{{weatherData.weather.temperature.min | temperature}} / {{weatherData.weather.temperature.max | temperature}}
-				</div>
-				<div>
-					<fa-icon [icon]="windIcon"></fa-icon>
-					5
-				</div>
-			</div>
+			<card-footer [weatherData]="weatherData"></card-footer>
 		</div>
 	</div>
 </div>
