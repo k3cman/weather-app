@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CurrentWeather } from '../../../../shared/models/weather/current-weather.class';
-import { WeatherService } from '../../../../core/http/weather/weather.service';
 import { Store } from '@ngrx/store';
 import { getForecast } from '../../../../core/store/actions/forecast.actions';
-import { clearSelected } from '../../../../core/store/actions/user-interface.actions';
+import { selectCurrentWeather } from '../../../../core/store/selectors/current-weather.selector';
 
 @Component({
 	selector: 'home',
@@ -12,9 +11,9 @@ import { clearSelected } from '../../../../core/store/actions/user-interface.act
 	styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-	public currentWeather$: Observable<CurrentWeather[]> = this.weatherService.getCurrentWeather();
+	public currentWeather$: Observable<CurrentWeather[]> = this.store.select(selectCurrentWeather);
 
-	constructor(private weatherService: WeatherService, private store: Store) {}
+	constructor(private store: Store) {}
 
 	public openDetails(location: CurrentWeather) {
 		this.store.dispatch(getForecast({ lat: location.cord.lat, lon: location.cord.lon, id: location.place.id }));

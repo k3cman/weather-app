@@ -6,6 +6,7 @@ import { CurrentWeather } from '../../../shared/models/weather/current-weather.c
 import { Observable } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 import { cityIds } from '../../../configs/city-ids.config';
+import { Forecast } from '../../../shared/models/weather/forecast.model';
 
 @Injectable({
 	providedIn: 'root',
@@ -53,6 +54,16 @@ export class WeatherService {
 
 	// USE THIS FOR FORECAST
 	public getForecastForCity(lat: number, lon: number) {
-		return this.http.get(`${this.apiUrl}onecall?lat=${lat}&lon=${lon}&units=metric&appid=${WEATHER_API_KEY}`);
+		return this.http
+			.get<Forecast>(`${this.apiUrl}onecall?lat=${lat}&lon=${lon}&units=metric&appid=${WEATHER_API_KEY}`)
+			.pipe(
+				map((res) => ({
+					lat: res.lat,
+					lon: res.lon,
+					timezone: res.timezone,
+					timezone_offset: res.timezone_offset,
+					hourly: res.hourly,
+				}))
+			);
 	}
 }
