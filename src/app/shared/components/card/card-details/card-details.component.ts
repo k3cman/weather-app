@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnDestroy, OnI
 import { Store } from '@ngrx/store';
 import { AppState } from '../../../../core/store/models/app.state';
 import { selectCurrentForecast } from '../../../../core/store/selectors/forecast.selector';
-import { filter } from 'rxjs/operators';
+import { delay, filter } from 'rxjs/operators';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { ForecastType } from '../../../models/enums/forecast-type.enum';
 import { HOUR_BUTTON_OPTIONS } from '../../../consts/hour-button-options';
@@ -19,7 +19,7 @@ import { TimeOfDay } from '../../../models/enums/time-of-day.enum';
 export class CardDetailsComponent implements OnInit, OnDestroy {
 	@Input() public timeOfDay: TimeOfDay;
 	private forecastData$: BehaviorSubject<Forecast> = new BehaviorSubject<Forecast>(null);
-	public forecast$ = this.forecastData$.asObservable();
+	public forecast$ = this.forecastData$.asObservable().pipe(delay(400));
 	public activeForecast: ForecastType = ForecastType.TEMPERATURE;
 	public numberOfHours: number = 8;
 

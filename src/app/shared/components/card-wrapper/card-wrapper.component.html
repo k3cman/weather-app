@@ -5,7 +5,7 @@
 	</div>
 	<div class="details" *ngIf="currentState === cardState.EXPANDED">
 
-		<card-details [timeOfDay]="timeOfDay" (close)="close()"></card-details>
+		<card-details [@grow] [timeOfDay]="timeOfDay" (close)="close()"></card-details>
 	</div>
 	<div class="closed" *ngIf="currentState === cardState.CLOSED">
 

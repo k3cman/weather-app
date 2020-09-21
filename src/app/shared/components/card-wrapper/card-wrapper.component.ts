@@ -8,11 +8,13 @@ import { CurrentWeather } from '../../models/weather/current-weather.class';
 import { clearSelected } from '../../../core/store/actions/user-interface.actions';
 import { TimeOfDay } from '../../models/enums/time-of-day.enum';
 import { CardState } from '../../models/enums/card-state.enum';
+import { growAnimation } from '../../animations/grow.animation';
 
 @Component({
 	selector: 'card-wrapper',
 	templateUrl: './card-wrapper.component.html',
 	styleUrls: ['./card-wrapper.component.scss'],
+	animations: [growAnimation],
 })
 export class CardWrapperComponent {
 	public currentState = CardState.STANDARD;
