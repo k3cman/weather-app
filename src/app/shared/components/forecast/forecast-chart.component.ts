@@ -5,7 +5,7 @@ import { TemperaturePipe } from '../../../core/pipes/temperature/temperature.pip
 import { ForecastType } from '../../models/enums/forecast-type.enum';
 
 @Component({
-	selector: 'forecast',
+	selector: 'forecast-chart',
 	templateUrl: './forecast-chart.component.html',
 	styleUrls: ['./forecast-chart.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush,

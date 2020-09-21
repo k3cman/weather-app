@@ -25,6 +25,7 @@ export class CardDetailsComponent implements OnInit, OnDestroy {
 	public hourButtons = HOUR_BUTTON_OPTIONS;
 	private subscriptions: Subscription[] = [];
 	@Output() public readonly close: EventEmitter<void> = new EventEmitter<void>();
+	public chartLoaded: boolean = false;
 
 	constructor(private store: Store<AppState>) {}
 

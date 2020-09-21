@@ -10,8 +10,15 @@
 	</div>
 </div>
 
-<div class="chart" *ngIf="forecast$ | async as forecast">
-	<forecast [data]="forecast" [forecastType]="activeForecast" [selectedPeriod]="numberOfHours"></forecast>
+<div class="chart" *ngIf="forecast$ | async as forecast;else loader">
+	<forecast-chart [data]="forecast" [forecastType]="activeForecast" [selectedPeriod]="numberOfHours"></forecast-chart>
 </div>
 
 <button class="close" (click)="close.emit()">X</button>
+
+
+<ng-template #loader>
+	<div class="loader" *ngIf="!chartLoaded">
+		<loader></loader>
+	</div>
+</ng-template>

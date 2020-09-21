@@ -9,10 +9,19 @@ import { CardClosedComponent } from './card-closed/card-closed.component';
 import { CardFooterComponent } from './card-footer/card-footer.component';
 import { ButtonsModule } from '../buttons/buttons.module';
 import { ForecastChartModule } from '../forecast/forecast-chart.module';
+import { LoaderModule } from '../loader/loader.module';
 
 @NgModule({
 	declarations: [CardComponent, CardDetailsComponent, CardClosedComponent, CardFooterComponent],
 	exports: [CardComponent, CardDetailsComponent, CardClosedComponent],
-	imports: [CommonModule, FontAwesomeModule, PipesModule, NgxChartsModule, ForecastChartModule, ButtonsModule],
+	imports: [
+		CommonModule,
+		FontAwesomeModule,
+		PipesModule,
+		NgxChartsModule,
+		ForecastChartModule,
+		ButtonsModule,
+		LoaderModule,
+	],
 })
 export class CardModule {}
