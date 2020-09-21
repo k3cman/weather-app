@@ -16,7 +16,6 @@ export class ForecastEffect {
 			switchMap(([{ lon, lat, id }, store]) => {
 				this.store.dispatch(setSelected({ data: { lat, lon, id } }));
 				const savedElement = store.selectedForecast.saved.filter((e) => e.id === id);
-				console.log(savedElement);
 				if (savedElement.length > 0 && new Date(savedElement[0].updated).getHours() === new Date().getHours()) {
 					return of(getForecastSuccess({ data: savedElement[0], save: false }));
 				} else {
