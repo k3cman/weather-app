@@ -6,7 +6,7 @@ export interface AppState {
 	// Store
 	selected: any;
 	// Cached data
-	forecasts: any[];
+	selectedForecast: any[];
 	// Loading indicator
 	userInterface: any;
 }
