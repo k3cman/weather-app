@@ -3,7 +3,7 @@ import { APP_INITIALIZER, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { CardModule } from './shared/components/card/card.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HomeModule } from './modules/home/home.module';
@@ -12,7 +12,6 @@ import { RootStoreModule } from './core/store/root-store.module';
 import { Store } from '@ngrx/store';
 import { AppState } from './core/store/models/app.state';
 import { getCurrentWeather } from './core/store/actions/current-weather.actions';
-import { RequestInterceptor } from './core/interceptors/request.interceptor';
 import { LoaderModule } from './shared/components/loader/loader.module';
 
 @NgModule({
@@ -38,11 +37,6 @@ import { LoaderModule } from './shared/components/loader/loader.module';
 			},
 			multi: true,
 			deps: [Store],
-		},
-		{
-			provide: HTTP_INTERCEPTORS,
-			useClass: RequestInterceptor,
-			multi: true,
 		},
 	],
 	bootstrap: [AppComponent],
