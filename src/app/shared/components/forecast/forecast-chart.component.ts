@@ -33,6 +33,8 @@ export class ForecastChartComponent {
 	@Input() timeOfDay: TimeOfDay;
 	// Selected forecast type to show (Wind or Temperature)
 	@Input() public forecastType: ForecastType;
+	// Forecast types for casting to html
+	public forecastTypes = ForecastType;
 	// For keeping the received data from parent component
 	private _data: any;
 	@Input() public set data(data: any) {
