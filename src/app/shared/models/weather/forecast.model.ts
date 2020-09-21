@@ -1,5 +1,8 @@
 import { HourlyForecast } from './hourly-forecast.model';
 
+/**
+ * DTO for grouping all hourly forecasts of one Location
+ */
 export class Forecast {
 	lat: number;
 	lon: number;

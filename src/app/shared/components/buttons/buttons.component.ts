@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { TimeOfDay } from '../card-wrapper/card-wrapper.component';
+import { TimeOfDay } from '../../models/enums/time-of-day.enum';
 
 @Component({
 	selector: 'buttons',
