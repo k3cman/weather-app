@@ -48,4 +48,12 @@ export class CardWrapperComponent {
 	public close() {
 		this.store.dispatch(clearSelected());
 	}
+
+	public handleCardClick() {
+		if (this.expandedClass) {
+			this.close();
+		} else {
+			this.openDetails.emit(this.place);
+		}
+	}
 }

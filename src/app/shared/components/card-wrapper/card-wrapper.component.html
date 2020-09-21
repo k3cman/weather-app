@@ -1,6 +1,6 @@
 <div class="card-wrapper"  >
 	<div class="card" *ngIf="currentState !== cardState.CLOSED">
-		<card [weatherData]="place" (click)="openDetails.emit(place)">
+		<card [weatherData]="place" (click)="handleCardClick(place)">
 		</card>
 	</div>
 	<div class="details" *ngIf="currentState === cardState.EXPANDED">
