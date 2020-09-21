@@ -14,4 +14,8 @@ export class CurrentWeather {
 		status: string;
 		icon: string;
 	};
+	day: {
+		sunrise: number;
+		sunset: number;
+	};
 }

@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { TimeOfDay } from '../card-wrapper/card-wrapper.component';
 
 @Component({
 	selector: 'buttons',
@@ -9,6 +10,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output
 export class ButtonsComponent implements OnInit {
 	@Input() public buttons: any;
 	@Input() public active: any;
+	@Input() public timeOfDay: TimeOfDay;
 	@Output() private readonly selected: EventEmitter<any> = new EventEmitter<any>();
 
 	constructor() {}

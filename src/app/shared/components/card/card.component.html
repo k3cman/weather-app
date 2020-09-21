@@ -1,8 +1,10 @@
-<div class="card">
+<div class="card" [ngClass]="{
+day: timeOfDay === 'day',
+night: timeOfDay === 'night'
+}">
   <div class="city">
 	  {{weatherData.place.city}}
   </div>
-
 	<div class="weather">
 		<div class="temperature">
 			{{weatherData.weather.temperature.current | temperature}}

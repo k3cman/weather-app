@@ -47,6 +47,10 @@ export class WeatherService {
 							status: data.weather[0].main,
 							icon: data.weather[0].icon,
 						},
+						day: {
+							sunrise: data.sys.sunrise,
+							sunset: data.sys.sunset,
+						},
 					}));
 				})
 			);

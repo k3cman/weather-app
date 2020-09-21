@@ -1,4 +1,7 @@
-<div>
+<div [ngClass]="{
+night: timeOfDay === 'night',
+day: timeOfDay === 'day'
+}">
 	<button *ngFor="let button of buttons" (click)="onButtonClick(button.value)" [ngClass]="{active: active === button.value}">
 		{{button.title}}
 	</button>

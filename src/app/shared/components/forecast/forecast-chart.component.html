@@ -10,7 +10,7 @@
 	[showGridLines]="true"
 	[curve]="curve"
 	[tooltipDisabled]="true"
-	[scheme]="'night'"
+	[scheme]="timeOfDay === 'day' ? 'flame' : 'nightLights'"
 	[autoScale]="true"
 	[roundDomains]="true"
 	[yAxisTickFormatting]="formatYAxis"

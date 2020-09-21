@@ -12,13 +12,21 @@
   	height: 100%;
 	box-shadow: $shadow;
 	transition: $shadow-transition;
-	background: url("../../../../assets/images/day.jpg");
-	background-size: cover;
+
 	padding:10px;
 	display: flex;
 	flex-direction: column;
 	align-self: center;
 	justify-content: space-between;
+
+	&.day{
+		background: url("../../../../assets/images/day.jpg");
+		background-size: cover;
+	}
+	&.night{
+		background: url("../../../../assets/images/night.jpg");
+		background-size: cover;
+	}
 
 	&:hover{
 		box-shadow: $shadow-hover;

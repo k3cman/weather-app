@@ -3,15 +3,15 @@
 </div>
 <div class="buttons">
 	<div>
-		<buttons [buttons]="forecastButtons" [active]="activeForecast" (selected)="setForecastType($event)"></buttons>
+		<buttons [timeOfDay]="timeOfDay" [buttons]="forecastButtons" [active]="activeForecast" (selected)="setForecastType($event)"></buttons>
 	</div>
 	<div>
-		<buttons [buttons]="hourButtons" [active]="numberOfHours" (selected)="changeHours($event)"></buttons>
+		<buttons [timeOfDay]="timeOfDay" [buttons]="hourButtons" [active]="numberOfHours" (selected)="changeHours($event)"></buttons>
 	</div>
 </div>
 
 <div class="chart" *ngIf="forecast$ | async as forecast;else loader">
-	<forecast-chart [data]="forecast" [forecastType]="activeForecast" [selectedPeriod]="numberOfHours"></forecast-chart>
+	<forecast-chart [timeOfDay]="timeOfDay" [data]="forecast" [forecastType]="activeForecast" [selectedPeriod]="numberOfHours"></forecast-chart>
 </div>
 
 <button class="close" (click)="close.emit()">X</button>

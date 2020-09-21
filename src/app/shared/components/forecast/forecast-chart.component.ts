@@ -3,6 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 import * as shape from 'd3-shape';
 import { TemperaturePipe } from '../../../core/pipes/temperature/temperature.pipe';
 import { ForecastType } from '../../models/enums/forecast-type.enum';
+import { TimeOfDay } from '../card-wrapper/card-wrapper.component';
 
 @Component({
 	selector: 'forecast-chart',
@@ -16,6 +17,7 @@ export class ForecastChartComponent {
 	public chartData$ = this._chartData$.asObservable();
 	public numberOfHours: number = 8;
 	public dataSet: any;
+	@Input() timeOfDay: TimeOfDay;
 	@Input() public set data(data: any) {
 		this.dataSet = data;
 		this.initializeChart();

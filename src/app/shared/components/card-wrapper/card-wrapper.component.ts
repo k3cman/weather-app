@@ -21,7 +21,15 @@ export class CardWrapperComponent {
 	public id: string;
 
 	public selectedElement$ = this.store.select(getUISelected);
-	@Input() place: CurrentWeather;
+	public data: CurrentWeather;
+	public timeOfDay: TimeOfDay;
+	@Input() public set place(value: CurrentWeather) {
+		this.data = value;
+		this.setTimeOfDay();
+	}
+	public get place() {
+		return this.data;
+	}
 	@Input() set cords(value: { cords: Coordinates; id: string }) {
 		this.initListener();
 		this.coordinates = value.cords;
@@ -56,4 +64,20 @@ export class CardWrapperComponent {
 			this.openDetails.emit(this.place);
 		}
 	}
+
+	private setTimeOfDay() {
+		const sunRise = new Date(this.place.day.sunrise).getHours();
+		const sunSet = new Date(this.place.day.sunset).getHours();
+		const currentHour = new Date().getHours();
+		if (sunRise < currentHour && currentHour < sunSet) {
+			this.timeOfDay = TimeOfDay.DAY;
+		} else {
+			this.timeOfDay = TimeOfDay.NIGHT;
+		}
+	}
+}
+
+export enum TimeOfDay {
+	DAY = 'day',
+	NIGHT = 'night',
 }
