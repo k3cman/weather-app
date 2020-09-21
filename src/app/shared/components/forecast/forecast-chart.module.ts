@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ForecastComponent } from './forecast.component';
+import { ForecastChartComponent } from './forecast-chart.component';
 import { LineChartModule } from '@swimlane/ngx-charts';
 
 @NgModule({
-	declarations: [ForecastComponent],
+	declarations: [ForecastChartComponent],
 	imports: [CommonModule, LineChartModule],
-	exports: [ForecastComponent],
+	exports: [ForecastChartComponent],
 })
-export class ForecastModule {}
+export class ForecastChartModule {}

@@ -6,12 +6,12 @@ import { ForecastType } from '../../models/enums/forecast-type.enum';
 
 @Component({
 	selector: 'forecast',
-	templateUrl: './forecast.component.html',
-	styleUrls: ['./forecast.component.scss'],
+	templateUrl: './forecast-chart.component.html',
+	styleUrls: ['./forecast-chart.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush,
 	providers: [TemperaturePipe],
 })
-export class ForecastComponent {
+export class ForecastChartComponent {
 	private _chartData$: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 	public chartData$ = this._chartData$.asObservable();
 	public numberOfHours: number = 8;
