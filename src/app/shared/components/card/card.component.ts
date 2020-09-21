@@ -1,12 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CurrentWeather } from '../../models/weather/current-weather.class';
-import { TimeOfDay } from '../card-wrapper/card-wrapper.component';
-
-export enum CardState {
-	CLOSED = 'closed',
-	STANDARD = 'standard',
-	EXPANDED = 'expanded',
-}
+import { TimeOfDay } from '../../models/enums/time-of-day.enum';
 
 @Component({
 	selector: 'card',

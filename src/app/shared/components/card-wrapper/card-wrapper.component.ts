@@ -1,5 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
-import { CardState } from '../card/card.component';
+import { Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
 import { Coordinates } from '../../models/weather/coordinates.model';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../../core/store/models/app.state';
@@ -7,6 +6,8 @@ import { getUISelected } from '../../../core/store/selectors/user-interface.sele
 import { filter } from 'rxjs/operators';
 import { CurrentWeather } from '../../models/weather/current-weather.class';
 import { clearSelected } from '../../../core/store/actions/user-interface.actions';
+import { TimeOfDay } from '../../models/enums/time-of-day.enum';
+import { CardState } from '../../models/enums/card-state.enum';
 
 @Component({
 	selector: 'card-wrapper',
@@ -75,9 +76,4 @@ export class CardWrapperComponent {
 			this.timeOfDay = TimeOfDay.NIGHT;
 		}
 	}
-}
-
-export enum TimeOfDay {
-	DAY = 'day',
-	NIGHT = 'night',
 }

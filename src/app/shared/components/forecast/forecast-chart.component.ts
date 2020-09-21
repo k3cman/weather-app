@@ -3,7 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 import * as shape from 'd3-shape';
 import { TemperaturePipe } from '../../../core/pipes/temperature/temperature.pipe';
 import { ForecastType } from '../../models/enums/forecast-type.enum';
-import { TimeOfDay } from '../card-wrapper/card-wrapper.component';
+import { TimeOfDay } from '../../models/enums/time-of-day.enum';
 
 @Component({
 	selector: 'forecast-chart',

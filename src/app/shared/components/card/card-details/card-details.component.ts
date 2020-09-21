@@ -8,7 +8,7 @@ import { ForecastType } from '../../../models/enums/forecast-type.enum';
 import { HOUR_BUTTON_OPTIONS } from '../../../consts/hour-button-options';
 import { FORECAST_BUTTON_OPTIONS } from '../../../consts/forecast-button-options';
 import { Forecast } from '../../../models/weather/forecast.model';
-import { TimeOfDay } from '../../card-wrapper/card-wrapper.component';
+import { TimeOfDay } from '../../../models/enums/time-of-day.enum';
 
 @Component({
 	selector: 'card-details',
