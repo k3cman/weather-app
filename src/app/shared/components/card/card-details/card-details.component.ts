@@ -7,6 +7,7 @@ import { BehaviorSubject, Subscription } from 'rxjs';
 import { ForecastType } from '../../../models/enums/forecast-type.enum';
 import { HOUR_BUTTON_OPTIONS } from '../../../consts/hour-button-options';
 import { FORECAST_BUTTON_OPTIONS } from '../../../consts/forecast-button-options';
+import { Forecast } from '../../../models/weather/forecast.model';
 
 @Component({
 	selector: 'card-details',
@@ -15,7 +16,7 @@ import { FORECAST_BUTTON_OPTIONS } from '../../../consts/forecast-button-options
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardDetailsComponent implements OnInit, OnDestroy {
-	private forecastData$: BehaviorSubject<any> = new BehaviorSubject<any>(null);
+	private forecastData$: BehaviorSubject<Forecast> = new BehaviorSubject<Forecast>(null);
 	public forecast$ = this.forecastData$.asObservable();
 	public activeForecast: ForecastType = ForecastType.TEMPERATURE;
 	public numberOfHours: number = 8;
@@ -49,8 +50,6 @@ export class CardDetailsComponent implements OnInit, OnDestroy {
 	}
 
 	public ngOnDestroy() {
-		console.log('onDestory');
 		this.subscriptions.forEach((sub: Subscription) => sub.unsubscribe());
-		this.forecastData$.next(null);
 	}
 }
