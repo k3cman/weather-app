@@ -7,7 +7,6 @@
 - [x] Add store for current weather
 - [x] Add store for forecast
 - [ ] Add memorizing to store
-- [ ] Add memorizing to localstorage
 - [x] Add store for ui interactions
 - Styles
 - [ ] Add styles for night and day
@@ -19,7 +18,6 @@
 
 
 - [x] Implement on push
-- [ ] Implement resolver/lazy loaders
 - [ ] Add global interceptor for loading
 - [ ] Add interceptor for error handling
 
