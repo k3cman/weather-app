@@ -7,7 +7,9 @@ import { BehaviorSubject } from 'rxjs';
 import { ForecastType } from '../../../models/enums/forecast-type.enum';
 import { HOUR_BUTTON_OPTIONS } from '../../../consts/hour-button-options';
 import { FORECAST_BUTTON_OPTIONS } from '../../../consts/forecast-button-options';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 
+@UntilDestroy()
 @Component({
 	selector: 'card-details',
 	templateUrl: './card-details.component.html',
@@ -31,7 +33,10 @@ export class CardDetailsComponent implements OnInit {
 	ngOnInit(): void {
 		this.store
 			.select(selectCurrentForecast)
-			.pipe(filter((e) => !!e))
+			.pipe(
+				filter((e) => !!e),
+				untilDestroyed(this)
+			)
 			.subscribe((val) => {
 				this.forecastData$.next(val);
 			});

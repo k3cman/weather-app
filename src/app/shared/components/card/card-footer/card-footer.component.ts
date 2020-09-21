@@ -11,6 +11,7 @@ import {
 	faThermometerHalf,
 	faWind,
 } from '@fortawesome/free-solid-svg-icons';
+import { getIcon } from '../../../utils/get-icon';
 
 @Component({
 	selector: 'card-footer',
@@ -30,43 +31,6 @@ export class CardFooterComponent {
 
 	private generateData(data: CurrentWeather) {
 		this.data = data;
-		this.getCurrentIcon(data.weather.icon);
-	}
-
-	private getCurrentIcon(icon) {
-		switch (icon) {
-			case '01d':
-			case '01n':
-				this.currentWeatherIcon = faSun;
-				break;
-			case '02d':
-			case '02n':
-				this.currentWeatherIcon = faCloudSun;
-				break;
-			case '03d':
-			case '03n':
-			case '04d':
-			case '04n':
-				this.currentWeatherIcon = faCloud;
-				break;
-			case '09d':
-			case '09n':
-			case '10d':
-			case '10n':
-				this.currentWeatherIcon = faCloudRain;
-				break;
-			case '11d':
-			case '11n':
-				this.currentWeatherIcon = faBolt;
-				break;
-			case '13d':
-			case '13n':
-				this.currentWeatherIcon = faSnowflake;
-				break;
-			case '50d':
-			case '50n':
-				this.currentWeatherIcon = faSmog;
-				break;
-		}
+		this.currentWeatherIcon = getIcon(data.weather.icon);
 	}
 }
