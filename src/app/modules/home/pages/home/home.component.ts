@@ -23,4 +23,8 @@ export class HomeComponent {
 	public openDetails(location: CurrentWeather) {
 		this.store.dispatch(getForecast({ lat: location.cord.lat, lon: location.cord.lon, id: location.place.id }));
 	}
+
+	public trackByIndex(index: number) {
+		return index;
+	}
 }

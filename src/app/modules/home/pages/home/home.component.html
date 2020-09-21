@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="card-wrapper" *ngIf="currentWeather$ | async as currentWeathers">
-		<ng-container *ngFor="let place of currentWeathers">
+		<ng-container *ngFor="let place of currentWeathers;let i = index;trackBy: trackByIndex">
 			<card-wrapper (click)="openDetails(place)"
 						   [cords]="{cords: place.cord, id: place.place.id}"
 			>
