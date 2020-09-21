@@ -16,10 +16,6 @@ export class HomeComponent {
 
 	constructor(private weatherService: WeatherService, private store: Store) {}
 
-	public close() {
-		this.store.dispatch(clearSelected());
-	}
-
 	public openDetails(location: CurrentWeather) {
 		this.store.dispatch(getForecast({ lat: location.cord.lat, lon: location.cord.lon, id: location.place.id }));
 	}

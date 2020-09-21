@@ -1,19 +1,10 @@
 <div class="container">
 	<div class="card-wrapper" *ngIf="currentWeather$ | async as currentWeathers">
 		<ng-container *ngFor="let place of currentWeathers;let i = index;trackBy: trackByIndex">
-			<card-wrapper (click)="openDetails(place)"
+			<card-wrapper (openDetails)="openDetails($event)"
 						   [cords]="{cords: place.cord, id: place.place.id}"
+						  [place]="place"
 			>
-				<ng-container card>
-					<card [weatherData]="place" >
-					</card>
-				</ng-container>
-				<ng-container closed>
-					<card-closed [weatherData]="place"></card-closed>
-				</ng-container>
-				<ng-container details>
-					<card-details (close)="close()" (click)="$event.stopPropagation()"></card-details>
-				</ng-container>
 			</card-wrapper>
 		</ng-container>
 	</div>

@@ -1,11 +1,14 @@
-<div class="card-wrapper">
+<div class="card-wrapper"  >
 	<div class="card" *ngIf="currentState !== cardState.CLOSED">
-		<ng-content select="[card]"></ng-content>
+		<card [weatherData]="place" (click)="openDetails.emit(place)">
+		</card>
 	</div>
 	<div class="details" *ngIf="currentState === cardState.EXPANDED">
-	<ng-content select="[details]"></ng-content>
+
+		<card-details (close)="close()"></card-details>
 	</div>
 	<div class="closed" *ngIf="currentState === cardState.CLOSED">
-	<ng-content select="[closed]"></ng-content>
+
+		<card-closed [weatherData]="place" (click)="openDetails.emit(place)"></card-closed>
 	</div>
 </div>

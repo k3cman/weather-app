@@ -49,6 +49,8 @@ export class CardDetailsComponent implements OnInit, OnDestroy {
 	}
 
 	public ngOnDestroy() {
+		console.log('onDestory');
 		this.subscriptions.forEach((sub: Subscription) => sub.unsubscribe());
+		this.forecastData$.next(null);
 	}
 }
