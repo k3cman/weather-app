@@ -1,3 +1,7 @@
+/**
+ * An array of options for user to select
+ * Used to change number of hours of forecast displayed
+ */
 export const HOUR_BUTTON_OPTIONS = [
 	{
 		value: 8,

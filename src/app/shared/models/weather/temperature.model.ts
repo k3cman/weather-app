@@ -1,3 +1,6 @@
+/**
+ * Temperature DTO Model
+ */
 export interface Temperature {
 	current: number;
 	min: number;

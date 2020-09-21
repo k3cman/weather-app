@@ -9,6 +9,10 @@ import {
 	IconDefinition,
 } from '@fortawesome/free-solid-svg-icons';
 
+/**
+ * Returns the FontAwesome icon depending on current weather status
+ * @param icon
+ */
 export const getIcon = (icon: string): IconDefinition => {
 	switch (icon) {
 		case '01d':

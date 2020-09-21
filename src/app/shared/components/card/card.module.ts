@@ -11,6 +11,9 @@ import { ButtonsModule } from '../buttons/buttons.module';
 import { ForecastChartModule } from '../forecast/forecast-chart.module';
 import { LoaderModule } from '../loader/loader.module';
 
+/**
+ * Module for declaration of all Card components
+ */
 @NgModule({
 	declarations: [CardComponent, CardDetailsComponent, CardClosedComponent, CardFooterComponent],
 	exports: [CardComponent, CardDetailsComponent, CardClosedComponent],

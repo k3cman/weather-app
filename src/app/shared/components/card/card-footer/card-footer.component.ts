@@ -1,16 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CurrentWeather } from '../../../models/weather/current-weather.class';
-import {
-	faBolt,
-	faCloud,
-	faCloudRain,
-	faCloudSun,
-	faSmog,
-	faSnowflake,
-	faSun,
-	faThermometerHalf,
-	faWind,
-} from '@fortawesome/free-solid-svg-icons';
+import { faSun, faThermometerHalf, faWind } from '@fortawesome/free-solid-svg-icons';
 import { getIcon } from '../../../utils/get-icon';
 
 @Component({
