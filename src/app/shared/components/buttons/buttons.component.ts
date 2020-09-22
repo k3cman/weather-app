@@ -7,15 +7,11 @@ import { TimeOfDay } from '../../models/enums/time-of-day.enum';
 	styleUrls: ['./buttons.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ButtonsComponent implements OnInit {
-	@Input() public buttons: any;
-	@Input() public active: any;
-	@Input() public timeOfDay: TimeOfDay;
-	@Output() private readonly selected: EventEmitter<any> = new EventEmitter<any>();
-
-	constructor() {}
-
-	ngOnInit(): void {}
+export class ButtonsComponent {
+	@Input() public buttons: any = [];
+	@Input() public active: any = false;
+	@Input() public timeOfDay: TimeOfDay = TimeOfDay.DAY;
+	@Output() public readonly selected: EventEmitter<any> = new EventEmitter<any>();
 
 	onButtonClick(value: any) {
 		this.selected.emit(value);
