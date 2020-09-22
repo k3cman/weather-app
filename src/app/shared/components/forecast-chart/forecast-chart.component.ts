@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener, Input } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import * as shape from 'd3-shape';
 import { TemperaturePipe } from '../../../core/pipes/temperature/temperature.pipe';
@@ -48,12 +48,24 @@ export class ForecastChartComponent {
 	// Function for adding temperature symbol at the Y axis label of the chart
 	public formatYAxis = (value) =>
 		`${this.forecastType === ForecastType.TEMPERATURE ? this.temperaturePipe.transform(value) : value}`;
+	// Size of chart
+	public chartSize: number[];
 
 	constructor(private temperaturePipe: TemperaturePipe) {}
+
+	/**
+	 * Horst listener for updating chart size
+	 * @private
+	 */
+	@HostListener('window:resize', ['$event'])
+	public onResize() {
+		this.chartSize = window.innerWidth < 1440 ? [650, 300] : [850, 350];
+	}
 
 	// Function for mapping the data for the chart
 	// And triggering its render with calling _items$ BehaviourSubject.next()
 	private initializeChart() {
+		this.onResize();
 		// Separate hourlyForecast to a const
 		const hourlyForecast: any[] = this._data.hourly;
 		// Get forecast-chart only for the number of hours selected

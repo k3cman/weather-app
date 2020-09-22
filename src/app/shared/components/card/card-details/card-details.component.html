@@ -1,4 +1,8 @@
+<!--TITLE-->
 <div class="header">Forecast</div>
+<!--TITLE-->
+
+<!--BUTTONS-->
 <div class="buttons">
 	<div>
 		<buttons [timeOfDay]="timeOfDay" [buttons]="forecastButtons" [active]="activeForecast" (selected)="setForecastType($event)"></buttons>
@@ -7,16 +11,22 @@
 		<buttons [timeOfDay]="timeOfDay" [buttons]="hourButtons" [active]="numberOfHours" (selected)="changeHours($event)"></buttons>
 	</div>
 </div>
+<!--BUTTONS-->
 
+<!--CHART-->
 <div class="chart" *ngIf="forecast$ | async as forecast;else loader">
 	<forecast-chart [timeOfDay]="timeOfDay" [data]="forecast" [forecastType]="activeForecast" [selectedPeriod]="numberOfHours"></forecast-chart>
 </div>
+<!--CHART-->
 
+<!--CLOSE BUTTON-->
 <button class="close" (click)="close.emit()">X</button>
+<!--CLOSE BUTTON-->
 
-
+<!--LOADER-->
 <ng-template #loader>
 	<div class="loader" *ngIf="!chartLoaded">
 		<loader></loader>
 	</div>
 </ng-template>
+<!--LOADER-->

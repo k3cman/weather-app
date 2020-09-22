@@ -7,8 +7,10 @@
 .card{
 	background: #ececec;
 	border-radius: 10px;
-	min-width: 260px;
-	max-width: 260px;
+	width:260px;
+	@media (max-width: 1440px){
+		max-width: 220px;
+	}
   	height: 100%;
 	box-shadow: $shadow;
 	transition: $shadow-transition;
@@ -55,6 +57,9 @@
 		padding:0 20px 10px 20px;
 		.temperature{
 			font-size:4em;
+			@media(max-width: 1440px){
+				font-size: 3em;
+			}
 		}
 	}
 }

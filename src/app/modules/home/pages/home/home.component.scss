@@ -2,6 +2,9 @@
 	max-width:1440px;
 	margin: 8em auto;
 	height:100%;
+	@media (max-width: 1440px){
+		max-width: 1200px;
+	}
 }
 
 .card-wrapper{
@@ -18,7 +21,7 @@ card-wrapper{
 	&.expanded-card{
 		flex:20 1 0;
 		display: block;
-		margin-right: 25px;;
+		margin-right: 25px;
 	}
 	&.closed-card{
 		flex: 1 1 0;
