@@ -42,6 +42,7 @@ describe('CardWrapperComponent', () => {
 		fixture = TestBed.createComponent(CardWrapperComponent);
 		component = fixture.componentInstance;
 		component.weatherData = currentPlaceForTest;
+		component.timeOfDay = TimeOfDay.DAY;
 		fixture.detectChanges();
 	});
 
