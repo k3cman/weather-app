@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ForecastChartComponent } from './forecast-chart.component';
+import { ChangeDetectionStrategy } from '@angular/core';
 
 describe('ForecastComponent', () => {
 	let component: ForecastChartComponent;
@@ -9,7 +10,11 @@ describe('ForecastComponent', () => {
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
 			declarations: [ForecastChartComponent],
-		}).compileComponents();
+		})
+			.overrideComponent(ForecastChartComponent, {
+				set: { changeDetection: ChangeDetectionStrategy.Default },
+			})
+			.compileComponents();
 	}));
 
 	beforeEach(() => {
@@ -21,4 +26,6 @@ describe('ForecastComponent', () => {
 	it('should create', () => {
 		expect(component).toBeTruthy();
 	});
+
+	it('should set');
 });

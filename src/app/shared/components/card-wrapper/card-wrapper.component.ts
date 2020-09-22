@@ -113,8 +113,8 @@ export class CardWrapperComponent {
 	 * @private
 	 */
 	private setTimeOfDay() {
-		const sunRise = new Date(this.place.day.sunrise).getHours();
-		const sunSet = new Date(this.place.day.sunset).getHours();
+		const sunRise = new Date(this.place.day.sunrise * 1000).getHours();
+		const sunSet = new Date(this.place.day.sunset * 1000).getHours();
 		const currentHour = new Date().getHours();
 		if (sunRise < currentHour && currentHour < sunSet) {
 			this.timeOfDay = TimeOfDay.DAY;
