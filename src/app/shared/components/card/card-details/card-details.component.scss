@@ -1,3 +1,5 @@
+@import "../../../../../assets/scss/shadow";
+
 :host{
 	border-radius: 5px;
 	height:100%;
@@ -33,7 +35,7 @@
 	outline:none;
 	padding:10px;
 	border-radius: 100%;
-	border: 1px solid #662e55;
+	border:none;
 	width:30px;
 	height:30px;
 	display: flex;
@@ -43,4 +45,9 @@
 	position: absolute;
 	right: -15px;
 	top: 50%;
+	box-shadow: $shadow;
+	transition: $shadow-transition;
+	&:hover{
+		box-shadow: $shadow-hover;
+	}
 }

@@ -13,11 +13,14 @@
 
 
 card-wrapper{
-	flex: 1 1 0;
+
 
 	&.expanded-card{
 		flex:20 1 0;
 		display: block;
 		margin-right: 25px;;
+	}
+	&.closed-card{
+		flex: 1 1 0;
 	}
 }

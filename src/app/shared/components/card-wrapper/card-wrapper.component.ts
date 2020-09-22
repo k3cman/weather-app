@@ -67,6 +67,10 @@ export class CardWrapperComponent {
 	 */
 	@HostBinding('class.expanded-card') expandedClass: boolean = false;
 	/**
+	 * Host binding used to manipulate width of closed cards when one card is open
+	 */
+	@HostBinding('class.closed-card') closedClass: boolean = false;
+	/**
 	 * Emitter for when the card is clicked
 	 */
 	@Output() public readonly openDetails: EventEmitter<CurrentWeather> = new EventEmitter<CurrentWeather>();
@@ -79,13 +83,20 @@ export class CardWrapperComponent {
 	 * @private
 	 */
 	private initListener() {
+		/**
+		 * Subscribe to store selected element
+		 */
 		this.selectedElement$.pipe(filter((e) => e !== undefined)).subscribe((res) => {
 			if (res === null) {
+				//If result is null all cards are standard size
 				this.currentState = CardState.STANDARD;
 				this.expandedClass = false;
+				this.closedClass = false;
 			} else {
+				// If there is a selected location manipulate how the cards look, and parent classes for width
 				this.currentState = res.id === this.id ? CardState.EXPANDED : CardState.CLOSED;
 				this.expandedClass = res.id === this.id;
+				this.closedClass = res.id !== this.id;
 			}
 		});
 	}
@@ -95,8 +106,10 @@ export class CardWrapperComponent {
 	 */
 	public handleCardClick() {
 		if (this.expandedClass) {
+			// If card is already open close it
 			this.close();
 		} else {
+			// Open details for the location
 			this.openDetails.emit(this.place);
 		}
 	}
