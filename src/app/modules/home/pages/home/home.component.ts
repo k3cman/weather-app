@@ -4,7 +4,7 @@ import { CurrentWeather } from '../../../../shared/models/weather/current-weathe
 import { Store } from '@ngrx/store';
 import { getForecast } from '../../../../core/store/actions/forecast.actions';
 import { selectCurrentWeather } from '../../../../core/store/selectors/current-weather.selector';
-import { slideInOutAnimation } from '../../../../shared/animations/slide-in.animation';
+import { opacityAnimation } from '../../../../shared/animations/opacity.animation';
 
 /**
  * Home component
@@ -14,7 +14,7 @@ import { slideInOutAnimation } from '../../../../shared/animations/slide-in.anim
 	selector: 'home',
 	templateUrl: './home.component.html',
 	styleUrls: ['./home.component.scss'],
-	animations: [slideInOutAnimation],
+	animations: [opacityAnimation],
 })
 export class HomeComponent {
 	// Current weather observable

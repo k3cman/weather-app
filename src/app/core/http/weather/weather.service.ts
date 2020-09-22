@@ -8,15 +8,24 @@ import { environment } from '../../../../environments/environment';
 import { cityIds } from '../../../configs/city-ids.config';
 import { Forecast } from '../../../shared/models/weather/forecast.model';
 
+/**
+ * Main Http service for getting data from OpenWeatherMap API
+ */
 @Injectable({
 	providedIn: 'root',
 })
 export class WeatherService {
+	/* Get base api url from env */
 	private apiUrl = environment.baseApiUrl;
+	/* Get list of cities from const and parse them into the string*/
 	private cities: string = cityIds.toString();
 
 	constructor(private http: HttpClient) {}
 
+	/**
+	 * Get current weather condition for 5 cities
+	 * Filter unnecessary data and Generate CurrentWeather array
+	 */
 	public getCurrentWeather(): Observable<CurrentWeather[]> {
 		return this.http
 			.get<CurrentWeather>(`${this.apiUrl}group?id=${this.cities}&units=metric&appid=${WEATHER_API_KEY}`)
@@ -56,7 +65,12 @@ export class WeatherService {
 			);
 	}
 
-	// USE THIS FOR FORECAST
+	/**
+	 * Used for getting single city forecast with latitude and longitude
+	 * Filters unnecessary data
+	 * @param lat
+	 * @param lon
+	 */
 	public getForecastForCity(lat: number, lon: number) {
 		return this.http
 			.get<Forecast>(`${this.apiUrl}onecall?lat=${lat}&lon=${lon}&units=metric&appid=${WEATHER_API_KEY}`)

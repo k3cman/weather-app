@@ -1,5 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
+/**
+ * Temperature pipe
+ * Ceils the value and adds degrees symbol
+ */
 @Pipe({
 	name: 'temperature',
 })

@@ -7,6 +7,9 @@ import { rootReducers } from './root-reducers';
 import { CurrentWeatherEffect } from './effects/current-weather.effect';
 import { ForecastEffect } from './effects/forecast.effect';
 
+/**
+ * Root store module
+ */
 @NgModule({
 	imports: [
 		StoreModule.forRoot(rootReducers, {

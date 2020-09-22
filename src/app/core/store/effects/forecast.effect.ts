@@ -7,8 +7,17 @@ import { Store } from '@ngrx/store';
 import { setSelected } from '../actions/user-interface.actions';
 import { of } from 'rxjs';
 
+/**
+ * Effect for getting forecast data from the server
+ */
 @Injectable()
 export class ForecastEffect {
+	/* Effect that Catches getForecast action
+	 *  and determines if the current user time has changed since the last request towards the forecast endpoint
+	 * if there is no change, and user already accessed the forecast, it will get the data from the store and show it to the user
+	 * else it will send http request and return data from endpoint
+	 * Then it dispatches Success action
+	 */
 	public getForecast$ = createEffect(() =>
 		this.actions$.pipe(
 			ofType(getForecast),

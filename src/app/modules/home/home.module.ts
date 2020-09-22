@@ -6,6 +6,9 @@ import { LineChartModule } from '@swimlane/ngx-charts';
 import { CardWrapperModule } from '../../shared/components/card-wrapper/card-wrapper.module';
 import { PipesModule } from '../../core/pipes/pipes.module';
 
+/**
+ * Home module, the root of the app
+ */
 @NgModule({
 	declarations: [HomeComponent],
 	imports: [CommonModule, CardModule, LineChartModule, CardWrapperModule, PipesModule],

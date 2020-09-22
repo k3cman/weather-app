@@ -1,6 +1,10 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { ForecastState } from '../models/forecast.state';
 
+/**
+ * Forecast Selector
+ */
+
 export const selectForecastState = createFeatureSelector<ForecastState>('selectedForecast');
 
 export const selectCurrentForecast = createSelector(selectForecastState, (state) => state?.selected);

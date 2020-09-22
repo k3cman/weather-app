@@ -1,6 +1,9 @@
 import { createReducer, on } from '@ngrx/store';
 import { clearSelected, setSelected } from '../actions/user-interface.actions';
 
+/**
+ * UI Reducer
+ */
 const UIReducerDef = createReducer(
 	null,
 	on(setSelected, (state, props) => ({

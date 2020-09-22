@@ -1,5 +1,10 @@
 import { createReducer, on } from '@ngrx/store';
 import { getForecastSuccess } from '../actions/forecast.actions';
+import { handleSavedState } from '../../../shared/utils/store/handleSavedState';
+
+/**
+ * Forecast reducer
+ */
 
 const forecastReducerDef = createReducer(
 	{ selected: null, saved: [] },
@@ -15,19 +20,3 @@ const forecastReducerDef = createReducer(
 );
 
 export const forecastReducer = (state, action) => forecastReducerDef(state, action);
-
-const handleSavedState = (state, props) => {
-	if (!props.save) {
-		return [...state.saved];
-	} else {
-		let savedState = [...state.saved];
-		const savedIndex = state.saved.findIndex((el) => el.id === props.data.id);
-		if (savedIndex >= 0) {
-			savedState[savedIndex] = { ...props.data };
-		} else {
-			savedState = [...savedState, props.data];
-		}
-
-		return savedState;
-	}
-};
