@@ -2,15 +2,21 @@
 day: timeOfDay === 'day',
 night: timeOfDay === 'night'
 }">
-  <div class="city">
-	  {{weatherData.place.city}}
-  </div>
+	<!--	Display name of city-->
+	<div class="city">
+		{{weatherData.place.city}}
+	</div>
+	<!--	Display name of city-->
 	<div class="weather">
+		<!--		Current Temperature-->
 		<div class="temperature">
 			{{weatherData.weather.temperature.current | temperature}}
 		</div>
+		<!--		Current Temperature-->
+		<!--		Current temperature Details-->
 		<div class="details">
 			<card-footer [weatherData]="weatherData"></card-footer>
 		</div>
+		<!--		Current temperature Details-->
 	</div>
 </div>

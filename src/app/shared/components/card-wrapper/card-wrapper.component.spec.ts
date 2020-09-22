@@ -41,7 +41,7 @@ describe('CardWrapperComponent', () => {
 	beforeEach(() => {
 		fixture = TestBed.createComponent(CardWrapperComponent);
 		component = fixture.componentInstance;
-		component.place = currentPlaceForTest;
+		component.weatherData = currentPlaceForTest;
 		fixture.detectChanges();
 	});
 

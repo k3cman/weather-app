@@ -1,8 +1,9 @@
 <div [ngClass]="{
-night: timeOfDay === 'night',
-day: timeOfDay === 'day'
+night: timeOfDay === timesOfDay.NIGHT,
+day: timeOfDay === timesOfDay.DAY
 }">
-	<button *ngFor="let button of buttons" (click)="onButtonClick(button.value)" [ngClass]="{active: active === button.value}">
+	<button (click)="onButtonClick(button.value)" *ngFor="let button of buttons;trackBy: trackBy"
+			[ngClass]="{active: active === button.value}">
 		{{button.title}}
 	</button>
 </div>

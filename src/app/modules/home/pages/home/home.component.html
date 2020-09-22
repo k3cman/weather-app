@@ -1,10 +1,10 @@
 <div class="container">
 	<div class="card-wrapper" *ngIf="currentWeather$ | async as currentWeathers" >
-		<ng-container *ngFor="let current of currentWeathers;let i = index;trackBy: trackByIndex">
+		<ng-container *ngFor="let current of currentWeathers;let i = index;trackBy: trackBy">
 			<card-wrapper (openDetails)="openForecast($event)"
-						   [cords]="{cords: current.cord, id: current.place.id}"
-						  [place]="current"
-						  [@opacity1]
+						  [@opacity]
+						  [cords]="{cords: current.cord, id: current.place.id}"
+						  [weatherData]="current"
 			>
 			</card-wrapper>
 		</ng-container>

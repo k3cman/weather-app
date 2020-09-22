@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import { getForecast } from '../../../../core/store/actions/forecast.actions';
 import { selectCurrentWeather } from '../../../../core/store/selectors/current-weather.selector';
 import { opacityAnimation } from '../../../../shared/animations/opacity.animation';
+import { trackByIndex } from '../../../../shared/utils/trackBy';
 
 /**
  * Home component
@@ -20,15 +21,13 @@ export class HomeComponent {
 	// Current weather observable
 	// Gets current weather for 5 cities from the store
 	public currentWeather$: Observable<CurrentWeather[]> = this.store.select(selectCurrentWeather);
+	// Function for NgFor trackBy
+	public trackBy = trackByIndex;
 
 	constructor(private store: Store) {}
 
 	// Open forecast-chart for the selected location
 	public openForecast(location: CurrentWeather) {
 		this.store.dispatch(getForecast({ lat: location.cord.lat, lon: location.cord.lon, id: location.place.id }));
-	}
-	// Function for NgFor trackBy
-	public trackByIndex(index: number) {
-		return index;
 	}
 }

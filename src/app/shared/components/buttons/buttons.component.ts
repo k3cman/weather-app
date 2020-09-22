@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
 import { TimeOfDay } from '../../models/enums/time-of-day.enum';
 import { ButtonValue } from '../../models/elements/button-values.model';
 import { ForecastType } from '../../models/enums/forecast-type.enum';
+import { trackByIndex } from '../../utils/trackBy';
 
 /**
  * Component for rendering multiple buttons
@@ -13,6 +14,10 @@ import { ForecastType } from '../../models/enums/forecast-type.enum';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonsComponent {
+	// Times of day
+	public timesOfDay = TimeOfDay;
+	// Function for NgFor trackBy
+	public trackBy = trackByIndex;
 	/**
 	 * Buttons array
 	 */

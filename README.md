@@ -1,28 +1,52 @@
-# Weather App
+# Angular Weather Web App
 
-- [x] Add service for fetching data
-- [x] Add styles
-- [x] Add Store
-- STORE
-- [x] Add store for current weather
-- [x] Add store for forecast
-- [x] Add memorizing to store
-- [x] Add store for ui interactions
-- Styles
-- [x] Add styles for night and day
-- [x] Add all icons for the status of weather
-- [x] Add animations
-- Tests
-- [ ] Add unit tests
-- [ ] Add comments
-- [x] Implement on push
- 
-- DETAILS COMPONENT
-- [x] Try to add one more row on top and bottom of chart
-- [x] Try other chart ?
+Weather app that show current weather in 5 cities, Belgrade, Munich, London, rome and Helsinki. When one of those cities cards are clicked, the card expands and shows chart of forecast data either for Temperature or for Wind, for the next 8, 12 or 24 hours.
 
-- ADDITIONAL
-- [ ] Add error handler
-- [ ] Add config
+![Cads view](https://i.imgur.com/zD4gpPX.jpg)
+![Expanded forecast](https://i.imgur.com/XJBgtIE.jpg)
 
-DO DETAILS COMPONENT AFTER THE STORE IMPLEMENTATION
+## Architecture
+App is using Global Store, with the help of NgRx, for getting the data and displayin it in the DOM.
+On the initialization of the app, provider dispatches the action for getting the current weather conditions for the five cities, and displays it by rendering 5 cards, that recognize for each location is there day or night according to sunset and sunrise data from the response of the endpoint, and shows black or purple theme depending of the time of the day.
+
+When clicked on the single card, other cards get closed, and they show only current temperature and city name, while the clicked card expands, and dispatches the action for getting the forecast for cards location.
+
+The store effect for the forecast, first check if there is saved forecast for the current users hour. If there is, it wont send request towards the api endpoint, but if there is no saved data for current location, it will get it from the api. When the effect finishes the evaluation, it dispatches success action in order to render forecast chart. The reducer then sets the selected city forecast in the store, and saves the forecast for the later use.
+
+Forecast is used from the state only if the same forecast api request, happened in the current hour.
+
+
+## Used technologies
+  - Angular10
+  - Angular FontAwesome
+  - Ngrx (Store and Effects),
+  - Ngx-Charts
+  - Jasmine and carma for Unit Testing
+  - Cypress for e2e testing
+  - Prettier for formating the code
+
+Attempted to use best Angular practices, with using RxJs, Angular Animations, OnPush detection strategy.
+
+## Installation
+```sh
+$ npm install
+```
+
+#### Running on local machine
+```sh
+$ ng serve -o
+```
+
+#### Running unit tests
+```sh
+$ ng test
+```
+
+#### Running e2e tests
+```sh
+$ ng e2e
+```
+or for developement cypress mode
+```sh
+$ ng e2e:dev
+```

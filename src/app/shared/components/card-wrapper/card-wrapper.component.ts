@@ -41,7 +41,7 @@ export class CardWrapperComponent {
 	 * Setter for CurrentWeather of single location and initialize function for determining TimeOfTheDay
 	 * @param value: CurrentWeather
 	 */
-	@Input() public set place(value: CurrentWeather) {
+	@Input() public set weatherData(value: CurrentWeather) {
 		this.data = value;
 		this.setTimeOfDay();
 	}
@@ -49,7 +49,7 @@ export class CardWrapperComponent {
 	/**
 	 * Getter for Current weather
 	 */
-	public get place() {
+	public get weatherData() {
 		return this.data;
 	}
 
@@ -110,7 +110,7 @@ export class CardWrapperComponent {
 			this.close();
 		} else {
 			// Open details for the location
-			this.openDetails.emit(this.place);
+			this.openDetails.emit(this.weatherData);
 		}
 	}
 
@@ -126,8 +126,8 @@ export class CardWrapperComponent {
 	 * @private
 	 */
 	private setTimeOfDay() {
-		const sunRise = new Date(this.place.day.sunrise * 1000).getHours();
-		const sunSet = new Date(this.place.day.sunset * 1000).getHours();
+		const sunRise = new Date(this.weatherData.day.sunrise * 1000).getHours();
+		const sunSet = new Date(this.weatherData.day.sunset * 1000).getHours();
 		const currentHour = new Date().getHours();
 		if (sunRise < currentHour && currentHour < sunSet) {
 			this.timeOfDay = TimeOfDay.DAY;
