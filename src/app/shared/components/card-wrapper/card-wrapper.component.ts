@@ -13,7 +13,7 @@ import { growAnimation } from '../../animations/grow.animation';
 /**
  * CardWrapper Component
  * Responsible for managing display of single location elements
- * Handles showing and hiding close/standard or open card with current weather and forecast
+ * Handles showing and hiding close/standard or open card with current weather and forecast-chart
  */
 @Component({
 	selector: 'card-wrapper',
@@ -28,7 +28,7 @@ export class CardWrapperComponent {
 	public cardState = CardState;
 	// Used for comparing with store and changing card state of the place
 	public id: string;
-	// Store selector to get what is the current selected element to show for forecast
+	// Store selector to get what is the current selected element to show for forecast-chart
 	// If its null all cardWrapper instances will have STANDARD card state
 	// If its not null, all cards will have CLOSED state , except the one which location id is the same as the store selected item id
 	public selectedElement$ = this.store.select(getUISelected);

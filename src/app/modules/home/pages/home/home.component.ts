@@ -23,7 +23,7 @@ export class HomeComponent {
 
 	constructor(private store: Store) {}
 
-	// Open forecast for the selected location
+	// Open forecast-chart for the selected location
 	public openForecast(location: CurrentWeather) {
 		this.store.dispatch(getForecast({ lat: location.cord.lat, lon: location.cord.lon, id: location.place.id }));
 	}

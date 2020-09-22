@@ -8,7 +8,7 @@ import { CardDetailsComponent } from './card-details/card-details.component';
 import { CardClosedComponent } from './card-closed/card-closed.component';
 import { CardFooterComponent } from './card-footer/card-footer.component';
 import { ButtonsModule } from '../buttons/buttons.module';
-import { ForecastChartModule } from '../forecast/forecast-chart.module';
+import { ForecastChartModule } from '../forecast-chart/forecast-chart.module';
 import { LoaderModule } from '../loader/loader.module';
 
 /**

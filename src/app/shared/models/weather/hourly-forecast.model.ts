@@ -1,6 +1,6 @@
 /**
  * DTO model containing data
- * for single hour forecast
+ * for single hour forecast-chart
  */
 export class HourlyForecast {
 	temp: number;

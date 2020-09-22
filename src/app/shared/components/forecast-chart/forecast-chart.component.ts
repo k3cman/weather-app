@@ -7,7 +7,7 @@ import { TimeOfDay } from '../../models/enums/time-of-day.enum';
 
 /**
  * Forecast Chart component
- * containing Chart with forecast for selected location
+ * containing Chart with forecast-chart for selected location
  */
 @Component({
 	selector: 'forecast-chart',
@@ -22,7 +22,7 @@ export class ForecastChartComponent {
 	// Chart Data Observable
 	// Used for displaying the data with the help of async pipe
 	public chartData$ = this._chartData$.asObservable();
-	// Selected number of hours to show forecast for
+	// Selected number of hours to show forecast-chart for
 	public numberOfHours: number = 8;
 	// Setter for setting the numberOfHours and initializing Chart
 	@Input() set selectedPeriod(value: number) {
@@ -31,7 +31,7 @@ export class ForecastChartComponent {
 	}
 	// Determining the theme of the chart library depending on the sunrise and sunset
 	@Input() timeOfDay: TimeOfDay;
-	// Selected forecast type to show (Wind or Temperature)
+	// Selected forecast-chart type to show (Wind or Temperature)
 	@Input() public forecastType: ForecastType;
 	// Forecast types for casting to html
 	public forecastTypes = ForecastType;
@@ -56,9 +56,9 @@ export class ForecastChartComponent {
 	private initializeChart() {
 		// Separate hourlyForecast to a const
 		const hourlyForecast: any[] = this._data.hourly;
-		// Get forecast only for the number of hours selected
+		// Get forecast-chart only for the number of hours selected
 		const nextHours = hourlyForecast.slice(0, this.numberOfHours);
-		// Generate temperature forecast array
+		// Generate temperature forecast-chart array
 		const temperature = nextHours.map((temp) => {
 			return {
 				// Calculate human readable hour for current temperature
@@ -67,7 +67,7 @@ export class ForecastChartComponent {
 				value: temp.temp,
 			};
 		});
-		// Generate wind forecast array
+		// Generate wind forecast-chart array
 		const wind = nextHours.map((w) => {
 			return {
 				// Calculate human readable hour for current wind

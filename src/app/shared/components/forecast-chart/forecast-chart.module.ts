@@ -5,7 +5,7 @@ import { LineChartModule } from '@swimlane/ngx-charts';
 
 /**
  * ForecastChartModule
- * Used for declaration of Chart component for showing up the forecast chart
+ * Used for declaration of Chart component for showing up the forecast-chart chart
  */
 @NgModule({
 	declarations: [ForecastChartComponent],
