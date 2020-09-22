@@ -1,13 +1,22 @@
+<!--	Current status icon-->
+<fa-icon [icon]="currentWeatherIcon" [size]="'lg'"></fa-icon>
+<!--	Current status icon-->
+<!--	Current status text-->
+<span>{{data.weather.status}}</span>
+<!--	Current status text	-->
 
-	<fa-icon [icon]="currentWeatherIcon" [size]="'lg'"></fa-icon>
-	<span>{{data.weather.status}}</span>
-	<div class="details-info">
-		<div class="temperature">
-			<fa-icon [icon]="thermometherIcon"></fa-icon>
-			{{data.weather.temperature.min | temperature}} / {{data.weather.temperature.max | temperature}}
-		</div>
-		<div class="wind">
-			<fa-icon [icon]="windIcon"></fa-icon>
-			{{data.weather.wind.speed}}
-		</div>
+<div class="details-info">
+	<!--		Average Temperature-->
+	<div class="temperature">
+		<fa-icon [icon]="thermometherIcon"></fa-icon>
+		{{data.weather.temperature.min | temperature}} / {{data.weather.temperature.max | temperature}}
 	</div>
+	<!--		Average Temperature-->
+	<!--		Wind-->
+	<div class="wind">
+		<fa-icon [icon]="windIcon"></fa-icon>
+		{{data.weather.wind.speed}}
+	</div>
+	<!--		Wind-->
+
+</div>

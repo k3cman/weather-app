@@ -1,10 +1,10 @@
-button{
-	outline:none;
-	border:none;
+button {
+	outline: none;
+	border: none;
 
-	padding:10px 6px;
-	color:white;
-	margin-right:10px;
+	padding: 10px 6px;
+	color: white;
+	margin-right: 10px;
 	border-radius: 5px;
 	cursor: pointer;
 	min-width: 50px;
@@ -12,27 +12,31 @@ button{
 }
 
 
-.day{
-	button{
+.day {
+	button {
 		background: #662E55;
-		&:hover{
+
+		&:hover {
 			background: #481e41;
 		}
-		&.active{
+
+		&.active {
 			background: #B84E7E;
 		}
 	}
 }
 
-.night{
-		button{
-			background: #373C76;
-			&:hover{
-				background: #30315D;
-			}
-			&.active{
-				background: #3D588F;
-			}
+.night {
+	button {
+		background: #373C76;
+
+		&:hover {
+			background: #30315D;
 		}
+
+		&.active {
+			background: #3D588F;
+		}
+	}
 
 }
