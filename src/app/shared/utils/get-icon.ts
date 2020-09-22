@@ -11,7 +11,7 @@ import {
 
 /**
  * Returns the FontAwesome icon depending on current weather status
- * @param icon
+ * @param icon: string
  */
 export const getIcon = (icon: string): IconDefinition => {
 	switch (icon) {

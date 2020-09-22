@@ -1,3 +1,5 @@
+// Data from this file is used for Unit tests only
+
 export const hourlyDataForTests = [
 	{
 		dt: 1600779600,

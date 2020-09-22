@@ -14,6 +14,9 @@ import { AppState } from './core/store/models/app.state';
 import { getCurrentWeather } from './core/store/actions/current-weather.actions';
 import { LoaderModule } from './shared/components/loader/loader.module';
 
+/**
+ * Main Application module
+ */
 @NgModule({
 	declarations: [AppComponent],
 	imports: [
@@ -28,6 +31,8 @@ import { LoaderModule } from './shared/components/loader/loader.module';
 		LoaderModule,
 	],
 	providers: [
+		// Used to get data on load of the app
+		// Gets current weather for 5 defined locations
 		{
 			provide: APP_INITIALIZER,
 			useFactory: (store: Store<AppState>) => {

@@ -2,7 +2,9 @@
  * An array of options for user to select
  * Used to change number of hours of forecast-chart displayed
  */
-export const HOUR_BUTTON_OPTIONS = [
+import { ButtonValue } from '../models/elements/button-values.model';
+
+export const HOUR_BUTTON_OPTIONS: ButtonValue[] = [
 	{
 		value: 8,
 		title: '8h',

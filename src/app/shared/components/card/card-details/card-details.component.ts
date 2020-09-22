@@ -9,6 +9,7 @@ import { HOUR_BUTTON_OPTIONS } from '../../../consts/hour-button-options';
 import { FORECAST_BUTTON_OPTIONS } from '../../../consts/forecast-button-options';
 import { Forecast } from '../../../models/weather/forecast.model';
 import { TimeOfDay } from '../../../models/enums/time-of-day.enum';
+import { ButtonValue } from '../../../models/elements/button-values.model';
 
 @Component({
 	selector: 'card-details',
@@ -23,9 +24,10 @@ export class CardDetailsComponent implements OnInit, OnDestroy {
 	public activeForecast: ForecastType = ForecastType.TEMPERATURE;
 	public numberOfHours: number = 8;
 
-	public forecastButtons = FORECAST_BUTTON_OPTIONS;
+	public forecastButtons: ButtonValue[] = FORECAST_BUTTON_OPTIONS;
 
-	public hourButtons = HOUR_BUTTON_OPTIONS;
+	public hourButtons: ButtonValue[] = HOUR_BUTTON_OPTIONS;
+
 	private subscriptions: Subscription[] = [];
 	@Output() public readonly close: EventEmitter<void> = new EventEmitter<void>();
 	public chartLoaded: boolean = false;
