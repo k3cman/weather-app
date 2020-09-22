@@ -1,7 +1,23 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './modules/home/pages/home/home.component';
+import { NotFoundComponent } from './modules/not-found/pages/not-found/not-found.component';
+import { ErrorComponent } from './modules/not-found/pages/error/error.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+	{
+		path: '',
+		component: HomeComponent,
+	},
+	{
+		path: 'error',
+		component: ErrorComponent,
+	},
+	{
+		path: '**',
+		component: NotFoundComponent,
+	},
+];
 
 /**
  * Main App Routing module

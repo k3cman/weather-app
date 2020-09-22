@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { WEATHER_API_KEY } from '../../../configs/api-key.config';
-import { map } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { CurrentWeather } from '../../../shared/models/weather/current-weather.class';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 import { cityIds } from '../../../configs/city-ids.config';
 import { Forecast } from '../../../shared/models/weather/forecast.model';
+import { Router } from '@angular/router';
 
 /**
  * Main Http service for getting data from OpenWeatherMap API
@@ -20,7 +21,7 @@ export class WeatherService {
 	/* Get list of cities from const and parse them into the string*/
 	private cities: string = cityIds.toString();
 
-	constructor(private http: HttpClient) {}
+	constructor(private http: HttpClient, private router: Router) {}
 
 	/**
 	 * Get current weather condition for 5 cities
@@ -61,6 +62,10 @@ export class WeatherService {
 							sunset: data.sys.sunset,
 						},
 					}));
+				}),
+				catchError(() => {
+					this.router.navigate(['error']);
+					return of([]);
 				})
 			);
 	}
@@ -81,7 +86,11 @@ export class WeatherService {
 					timezone: res.timezone,
 					timezone_offset: res.timezone_offset,
 					hourly: res.hourly,
-				}))
+				})),
+				catchError(() => {
+					this.router.navigate(['error']);
+					return of([]);
+				})
 			);
 	}
 }
