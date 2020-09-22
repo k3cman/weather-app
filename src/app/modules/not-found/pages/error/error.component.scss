@@ -1,0 +1,20 @@
+.error-container{
+	height:400px;
+	margin:6em auto;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	position:relative;
+	justify-content: center;
+	align-items: center;
+	span{
+		font-size:10em;
+		color: #662E55;
+	}
+	.error-msg{
+		font-size:1.2em;
+		background: #d8d8d8;
+		width:400px;
+		padding:20px;
+	}
+}

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './modules/home/pages/home/home.component';
-import { NotFoundComponent } from './modules/not-found/pages/not-found/not-found.component';
 import { ErrorComponent } from './modules/not-found/pages/error/error.component';
 
 const routes: Routes = [
@@ -15,7 +14,7 @@ const routes: Routes = [
 	},
 	{
 		path: '**',
-		component: NotFoundComponent,
+		component: ErrorComponent,
 	},
 ];
 
