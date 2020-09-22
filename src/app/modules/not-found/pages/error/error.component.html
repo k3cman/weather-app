@@ -1,13 +1,10 @@
 <div class="error-container">
 	<span>OOPS!</span>
 	<div class="error-msg">
-		<div *ngIf="error === errorTypes.SERVER">
-			<p>Internal server ERROR!</p>
-			<p>Please try again later</p>
-		</div>
-		<div *ngIf="error === errorTypes.ROUTE">
-			<p>Page not found!</p>
-			<p [routerLink]="'/'">Go home</p>
+		<div>
+			<p>Something went wrong!</p>
+			<a href="/">Go home</a>
+			<p>Or try again later</p>
 		</div>
 	</div>
 </div>
