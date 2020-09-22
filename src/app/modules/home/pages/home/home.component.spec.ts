@@ -26,7 +26,9 @@ describe('HomeComponent', () => {
 		expect(component).toBeTruthy();
 	});
 
-	it('should have container class', () => {
-		expect(fixture.debugElement.query(By.css('.container'))).toBeTrue();
-	});
+	it('should have container class', async(() => {
+		fixture.whenStable().then(() => {
+			expect(fixture.debugElement.query(By.css('.container')).nativeElement).toBeTruthy();
+		});
+	}));
 });
