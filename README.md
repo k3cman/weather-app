@@ -6,6 +6,7 @@ Weather app that show current weather in 5 cities, Belgrade, Munich, London, rom
 ![Expanded forecast](https://i.imgur.com/XJBgtIE.jpg)
 
 ## Architecture
+
 App is using Global Store, with the help of NgRx, for getting the data and displayin it in the DOM.
 On the initialization of the app, provider dispatches the action for getting the current weather conditions for the five cities, and displays it by rendering 5 cards, that recognize for each location is there day or night according to sunset and sunrise data from the response of the endpoint, and shows black or purple theme depending of the time of the day.
 
@@ -15,38 +16,52 @@ The store effect for the forecast, first check if there is saved forecast for th
 
 Forecast is used from the state only if the same forecast api request, happened in the current hour.
 
-
 ## Used technologies
-  - Angular10
-  - Angular FontAwesome
-  - Ngrx (Store and Effects),
-  - Ngx-Charts
-  - Jasmine and carma for Unit Testing
-  - Cypress for e2e testing
-  - Prettier for formating the code
+
+-   Angular10
+-   Angular FontAwesome
+-   Ngrx (Store and Effects),
+-   Ngx-Charts
+-   Jasmine and carma for Unit Testing
+-   Cypress for e2e testing
+-   Prettier for formating the code
 
 Attempted to use best Angular practices, with using RxJs, Angular Animations, OnPush detection strategy.
 
+## API Key
+
+For application to work you will need the API key from https://openweathermap.org/, and put it in
+
+```sh
+src/app/configs/api-key.config.ts
+```
+
 ## Installation
+
 ```sh
 $ npm install
 ```
 
 #### Running on local machine
+
 ```sh
 $ ng serve -o
 ```
 
 #### Running unit tests
+
 ```sh
 $ ng test
 ```
 
 #### Running e2e tests
+
 ```sh
 $ ng e2e
 ```
+
 or for developement cypress mode
+
 ```sh
 $ ng e2e:dev
 ```
