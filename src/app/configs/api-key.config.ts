@@ -1,1 +1,1 @@
-export const WEATHER_API_KEY = 'aa75c47291d41606d97abdb8c6530c13';
+export const WEATHER_API_KEY = 'INSERT_API_KEY_HERE';
